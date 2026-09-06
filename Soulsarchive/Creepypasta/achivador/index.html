@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivador</title>
+    <link rel="icon" href="Archivador.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="loader" class="loader">
+        <video id="loading-video" src="LoadinPequeno.mp4" muted autoplay loop></video>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="file" onclick="showContent('archivo1')">Acta v1.0</div>
+            <div class="file" onclick="showContent('archivo2')">6-7/8/2024</div>
+            <div class="file" onclick="showContent('archivo3')">Futuras Actualizaciones</div>
+            <div class="file" onclick="showContent('archivo4')">Internet Cave 2.5</div>
+            <div class="file" onclick="showContent('archivo5')">SoulMedia_Archive</div>
+            <!-- Puedes añadir más archivos aquí -->
+        </div>
+        <div class="content">
+            <div id="archivo1" class="file-content">
+                <h2>Acta v1.0 - 31/7/2024</h2>
+                <hr>
+                <p>Se finalizo con Internet Cave, Se tienen ideas para su *******, fueron retocados algunos errores en la tienda de productos y mas.</p>
+                <br>
+                <p>> Nivel Facil</p>
+                <p>> Nivel Medio</p>
+                <p>> Nivel Dificil</p>
+                <p>> Nivel Demoniaco</p>
+                <br>
+                <p>El juego cuenta con una sección de instrucciones.</p>
+                <p>Hace falta testear.</p>
+                <p>Se implementara lo antes posible su versión 2.5 con la intención de aportar mas contenido sobre la historia del videojuego.</p>
+            </div>
+            <div id="archivo2" class="file-content">
+                <h2>6-7/8/2024 - Pequeña implementación estética</h2>
+                <hr>
+                <p>SoulArchive.com recibió una actualización estética basada en la implementación de iconos en las diferentes pestañas, nueva pantalla de carga para la sección de imagenes generadas y algunos cambios simples.</p>
+            </div>
+            <div id="archivo3" class="file-content">
+                <h2>Futuras Actualizaciones SoulArchive.com</h2>
+                <hr>
+                <p>> Generador de personajes</p>
+                <p>> Nuevos minijuegos</p>
+                <p>> Mas enlaces redireccionables en el generador de imagenes</p>
+                <p>> Habitación 3D</p>
+                <p>> Coleccioanbles fisicos y virtuales</p>
+                <br>
+                <p>Envía tu idea a X</p>
+            </div>
+            <div id="archivo4" class="file-content">
+                <h2>Internet Cave 2.5 9/8/2024</h2>
+                <hr>
+                <p>* Se implemento el primer Track producido por <b>Ak1</b> y traido a la pagina de forma especial y exclusiva. Debido a ocacionarse ciertos problemas referidos al codigo base del videojuego, se opto por añadir la función de una forma alternativa.</p>
+                <hr>
+                <p>* Se añadio una pieza correspondiente a la historia que desea contar el videojuego.</p>
+            </div>
+            <div id="archivo5" class="file-content">
+                <h2>Mapa de Paginas web 13/8/2024</h2>
+                <hr>
+                <p>Se finalizo con la primera versión de la pagina web, tengo la buena noticia para decirme a mi, de que ya estamos mas cerca del comienzo que del principio conceptual, la pagina se comienza a volver fisica y con forma, los pensamientos de esta mente errante toman lugar en el planeta tierra.</p>
+                <p>Los enlaces se posicionaron sobre la querida pagina que no tiene fin, pronto mas entretenimiento.</p>
+                <img class="Img" src="Img1.jpg">
+            </div>
+            <!-- Puedes añadir más contenido aquí -->
+        </div>
+    </div>
+    <button class="back-button" onclick="goBack()">Volver</button>
+    <div class="version-text">SoulArchive.com archivador Versión 1.6</div>
+    <script src="script.js"></script>
+</body>
+</html>

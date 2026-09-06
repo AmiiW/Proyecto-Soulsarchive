@@ -1,0 +1,186 @@
+/* Estilo para el body */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('Fondohd2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor de las imágenes */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 50%; /* modificar para implementar mas imagenes */
+}
+
+/* Cada imagen ocupará un máximo del 25% del ancho para mantener 4 columnas en pantallas grandes */
+.image-item {
+    flex: 1 1 calc(25% - 20px); /* 4 columnas con un espacio de 20px entre ellas */
+    position: relative;
+    margin-bottom: 20px; /* Añade espacio vertical entre filas */
+}
+
+/* Estilo base de las imágenes */
+.image {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Efecto hover para cambiar la imagen individualmente con fade in/fade out */
+
+/* Imagen 1 */
+#img1:hover {
+    content: url('TIENDA.png');
+    transform: scale(1.05); /* Pequeño zoom opcional al hacer hover */
+}
+
+/* Imagen 2 */
+#img2:hover {
+    content: url('QUien.png');
+    transform: scale(1.05);
+}
+
+/* Imagen 3 */
+#img3:hover {
+    content: url('imagen3-hover.png');
+    transform: scale(1.05);
+}
+
+/* Imagen 4 */
+#img4:hover {
+    content: url('imagen4-hover.png');
+    transform: scale(1.05);
+}
+
+/* Cartel de texto */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+.fixed-text-container {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    overflow: hidden; /* Esconde el texto que sale del contenedor */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.fixed-text {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px; /* Puedes ajustar el tamaño de la fuente aquí */
+    font-weight: bold;
+    color: #ff000098; /* Cambia el color aquí */
+    text-shadow: 2px 2px 5px black;
+    white-space: nowrap;
+    animation: scrollText 15s linear infinite; /* Puedes ajustar la duración de la animación aquí */
+}
+
+.fixed-text a.clickable-word {
+    color: #00ff0094; /* Color del enlace */
+    text-decoration: none; /* Quita el subrayado */
+}
+
+.fixed-text a.clickable-word:hover {
+    text-decoration: underline; /* Subraya al pasar el cursor */
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(290%);
+    }
+}
+
+/* Fin cartel de texto */
+
+/* Estilo responsive para pantallas medianas (tabletas) */
+
+@media (max-width: 768px) {
+    .image-item {
+        flex: 1 1 calc(50% - 20px); /* 2 columnas en tabletas */
+    }
+
+    .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        max-width: 90%;
+    }
+}
+
+/* Estilo responsive para móviles */
+@media (max-width: 480px) {
+    .image-item {
+        flex: 1 1 calc(50% - 10px); /* 2 columnas en móviles */
+    }
+
+    .image {
+        max-width: 100%;
+    }
+}
+
+/* Página de carga */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease;
+    z-index: 10000;
+}
+
+#loader.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Evitar que se pueda interactuar con el loader cuando está desapareciendo */
+}
+
+#loader img {
+    max-width: 100%; /* Ajusta el tamaño del gif según tu preferencia */
+    max-height: 100%;
+}
+
+/* Ocultar contenido por defecto hasta que cargue la página */
+#content {
+    display: none;
+}
+
+/* Mostrar contenido cuando la carga finalice */
+#content.show {
+    display: block;
+}
+
+/* Fin pantalla de carga */
+
+/* Boton para ir atras */
+
+#backButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* Fin de boton para ir atras */

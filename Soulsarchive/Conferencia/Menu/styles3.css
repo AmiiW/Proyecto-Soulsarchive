@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #808080; /* Fondo gris */
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .title-image {
+    width: 80%; /* Responsivo: ocupa el 80% del ancho */
+    max-width: 1000px; /* Tamaño máximo para pantallas grandes */
+    animation: fadeEffect 2s infinite;
+  }
+  
+  @keyframes fadeEffect {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+  
+  .start-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #000;
+    background-color: #c0c0c0; /* Estilo de botón antiguo */
+    border: 2px solid #808080;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .start-button:hover {
+    background-color: #a9a9a9;
+    box-shadow: 2px 2px 5px #404040;
+  }
+  
+   /* Ajustes para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .title-image {
+      width: 100%; /* Se hace más pequeño en pantallas pequeñas */
+    }
+  
+    .start-button {
+      font-size:24px; /* Botón ligeramente más pequeño */
+      padding: 8px 16px;
+    }
+  }
+  
+  .footer-text {
+    position: fixed;
+    bottom: 60px; /* Distancia del borde inferior */
+    width: 100%; /* Asegura que esté centrado horizontalmente */
+    text-align: center; /* Centra el texto en el contenedor */
+    font-family: 'Times New Roman', Times, serif; /* Fuente solicitada */
+    font-size: 16px; /* Tamaño de letra ajustado */
+    color: #000; /* Cambia este color según tu diseño */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente opcional */
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+  }
+  
+  /* Boton para ir atras */
+
+#backButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Fin de boton para ir atras */

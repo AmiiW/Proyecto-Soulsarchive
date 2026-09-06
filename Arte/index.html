@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Galeria de arte de Soulsarchive." />
+    <title>La galeria de Ami // Soulsarchive</title>
+    <style>
+      :root {
+        --black: #000;
+        --white: #f4f4f2;
+        --muted: #8f8f8c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--black);
+        color: var(--white);
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      .gallery-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 24px 28px;
+      }
+
+      .gallery-title {
+        margin: 0;
+        font-family: "Courier New", monospace;
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .back-link {
+        color: var(--muted);
+        font: 0.7rem monospace;
+        letter-spacing: 0.12em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .back-link:hover,
+      .back-link:focus-visible {
+        color: var(--white);
+      }
+
+      .gallery {
+        column-count: 4;
+        column-gap: 0;
+      }
+
+      .art-button {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: #090909;
+        cursor: zoom-in;
+        break-inside: avoid;
+      }
+
+      .art-button img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        filter: brightness(0.9);
+        transition: filter 220ms ease, transform 220ms ease;
+      }
+
+      .art-button:hover img,
+      .art-button:focus-visible img {
+        filter: brightness(1.1);
+        transform: scale(1.035);
+      }
+
+      .art-button:focus-visible {
+        outline: 1px solid var(--white);
+        outline-offset: -3px;
+      }
+
+      .empty-gallery {
+        padding: 80px 28px;
+        color: var(--muted);
+        font: 0.8rem/1.6 monospace;
+        text-align: center;
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        display: grid;
+        place-items: center;
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.94);
+        cursor: zoom-out;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 220ms ease;
+      }
+
+      .lightbox.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .lightbox-image {
+        max-width: min(94vw, 1400px);
+        max-height: 90vh;
+        object-fit: contain;
+        cursor: default;
+        transform: scale(0.96);
+        transition: transform 220ms ease;
+      }
+
+      .lightbox.open .lightbox-image {
+        transform: scale(1);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 16px;
+        right: 22px;
+        border: 0;
+        background: transparent;
+        color: var(--white);
+        cursor: pointer;
+        font: 2rem/1 monospace;
+      }
+
+      @media (max-width: 600px) {
+        .gallery-header {
+          padding: 18px 16px;
+        }
+
+        .gallery {
+          column-count: 2;
+        }
+
+        .lightbox {
+          padding: 16px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="gallery-header">
+      <h1 class="gallery-title">La galeria de Ami</h1>
+      <a class="back-link" href="../index.html">Volver</a>
+    </header>
+
+    <main>
+      <section class="gallery" id="gallery" aria-label="Galeria de arte"></section>
+      <p class="empty-gallery" id="emptyGallery">La galeria se llenara cuando se añadan imagenes.</p>
+    </main>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar imagen">&times;</button>
+      <img class="lightbox-image" id="lightboxImage" alt="" />
+    </div>
+
+    <script>
+      const images = [
+        '40x40CM Miku.png',
+        '4EE0AE3E-4E70-4723-89D3-311C9A4EC5FE.JPG',
+        '5Let.png',
+        '618C9F45-18EA-4A77-9518-983E885FC660.JPEG',
+        '6Let.png',
+        '7Let.png',
+        'A9B6701B-F8FA-47C8-A9CB-EBD50F6D9479.png',
+        'BadCatEntrando.png',
+        'BanderaSoulsarchive4.png',
+        'BEREALPOSTEO.png',
+        'BEREALPOSTEO2.png',
+        'BEREALPOSTEO3.png',
+        'Captur4332423234432a.PNG',
+        'CreepyPictureFinal.png',
+        'D7845BD7-020D-4B3A-8B84-12A6E10BA93D.JPEG',
+        'EscudosYprofeciasL.png',
+        'fila-1-columna-1 (11).png',
+        'fila-1-columna-2 (11).png',
+        'fila-1-columna-3 (8).png',
+        'fila-1-columna-4 (6).png',
+        'FotoBuzo3.png',
+        'FotoBuzo4.png',
+        'Gemini_Generated_Image_z0jr6xz0jr6xz0jr.png',
+        'ImagenMem8.png',
+        'IMG_1549.JPG',
+        'IMG_4029.JPG',
+        'IMG_4034.JPG',
+        'IMG_5253.png',
+        'IMG_5767.JPG',
+        'LaLamidaDeLaLuna.png',
+        'LetraA.png',
+        'LetraB.png',
+        'LetraE.png',
+        'LetraK.png',
+        'MakingSomeShit.png',
+        'MemeChicosyChicas6.png',
+        'Nube y alfilerDiseñ2.png',
+        'P1.png',
+        'Pagina1.png',
+        'Pagina2.png',
+        'Pagina3.png',
+        'Pagina4.png',
+        'Pagina5.png',
+        'PanoramicaBarDeLouis.png',
+        'PersonajeSoulsEnSilla2.png',
+        'Post2PostAnarko.png',
+        'Post3NewGen2.png',
+        'Post4NewGen2.png',
+        'Post6NewGen2.png',
+        'Posteo1.png',
+        'Posteo2.png',
+        'Posteo2Especial.png',
+        'Posteo3.png',
+        'Posteo3CampOnirios.png',
+        'Posteo4CampOnirios.png',
+        'Posteo9.png',
+        'PosteoAltSaturado5.png',
+        'PosteoOutfit8.png',
+        'PosterBadCamp.png',
+        'Prueba1.psd.png',
+        'Prueba10.psd.png',
+        'Prueba12.psd.png',
+        'Prueba8.psd.png',
+        'Prueba9.psd.png',
+        'QLet.png',
+        'Radio1.png',
+        'Sin título-1.png',
+        'SoulsarchiveLogVideoVHS.png',
+        'SwagPosteo1.png',
+        'X y alfiler.png',
+        'YLet.png',
+        'Zombie.png',
+        '30x40 DiseñoHoja1.png',
+        '30x40 DiseñoHoja2.png',
+        '40x50 DiseñoHoja.png',
+        '70D7A6B9-3BB6-42B6-85C1-7282AF6E5A94.png',
+        '87336978.png',
+        '8766879978.png',
+        '876879978.png',
+        '876889978.png',
+        '87689978.png',
+        '876978.png',
+        '87698978.png',
+        '8769978.png',
+        'Accidente1.png',
+        'Alma1AÑO soulsarchive.png',
+        'Alma1AÑO soulsarchive2.png',
+        'AmigoInvisible.png',
+        'AnilloSec1.png',
+        'AnimalExotico.png',
+        'Aparicion.png',
+        'Arte1.png',
+        'Arte2.png',
+        'Arte3.png',
+        'Arte4.png',
+        'Arte5.png',
+        'BadCampsKETCJ.png',
+        'BadTrip.png',
+        'BanerCrazyPaw2.png',
+        'BD0EF51A-3FC2-4267-9DF5-17ECCB587836.png',
+        'BocaElCreador.png',
+        'Brazo1.png',
+        'Cabeza1.png',
+        'CampoAbierto.png',
+        'Captu3424234ra.PNG',
+        'Captur34445a.PNG',
+        'Captura2CrazyPaw.PNG',
+        'CapturCCalavera22.PNG',
+        'Caracteristicas.png',
+        'Carga2.png',
+        'CastilloEnElCielo.png',
+        'ChicaEstrellaPiano5.png',
+        'circuloX.png',
+        'CrazyPawContenido.png',
+        'Cuaderno.png',
+        'Cuadro3.png',
+        'CuadroEsqueleto.png',
+        'D5ECF05C-1C6D-4CD3-A5C5-8F3B6BE3B880.png',
+        'DBC138C8-4430-48B5-A309-48B05D10532F.png',
+        'DescuentoBuzo.png',
+        'DiabOdiseño33.png',
+        'Diseño 222.png',
+        'Diseño1Soul.png',
+        'Diseño2Soul.png',
+        'El invento2.png',
+        'ElCreadorDibujandoEnElPiso2.png',
+        'ElcreadorFondoTierra2.png',
+        'ElcreadorHablando3Parke.png',
+        'ElCreadorSeñalandoCamino.png',
+        'EscenaFinal.png',
+        'EscenaInicial.png',
+        'EscenaJesseyJaneReferencia2.png',
+        'EscenarioNoche1.png',
+        'Escudo1.png',
+        'Escudo4Try2.png',
+        'EspirituConSombrero6445.png',
+        'FeDigital10.png',
+        'fila-1-columna-1 (1).png',
+        'fila-1-columna-1 (4).png',
+        'fila-1-columna-2 (4).png',
+        'fila-1-columna-4 (1).png',
+        'Fondo.png',
+        'FotoSantarosa.png',
+        'FullBarranco.png',
+        'GiftCard.png',
+        'GorroRusi33an.png',
+        'HojosAbiertosSentao.png',
+        'IglesiaFinalDestruida.png',
+        'IglesiaSouls.png',
+        'ImagenAURA1.jpg',
+        'ImagenCampoVistaElCrEADOR2.png',
+        'Imagotipo SOULSARCHIVE.png',
+        'Img4545512.png',
+        'Img67656573.png',
+        'Img78762.png',
+        'ImgBicho.png',
+        'IMGprueba.png',
+        'IMG_0504.JPG',
+        'IMG_0545.JPG',
+        'IMG_2381.JPG',
+        'IMG_9305.JPG',
+        'Isotipo SOULSARCHIVE.png',
+        'Juego1POST.png',
+        'Juego1POST2.png',
+        'La identidad de la criatura.png',
+        'LemniscataPosteo444.png',
+        'Letra2.png',
+        'LetraR.png',
+        'logo(pregunta)2.png',
+        'logo(pregunta)432434.png',
+        'Logo1.1.png',
+        'LogoNewGen2LogoNegro.png',
+        'LuckySonriendo2.png',
+        'Meme1Pantalo333nes.png',
+        'Meme1Pantalo8888nes.png',
+        'MuerteFINAL.png',
+        'NewAphexPic2.png',
+        'NiñosEnGuarderia.png',
+        'novaskin-wallpaper-letsstart.jpg',
+        'PazMueble.png',
+        'PazSorprendidoCaidaDeEscombros.png',
+        'Pecho1.png',
+        'Pers15426656.png',
+        'Personaje1.png',
+        'Personaje2.png',
+        'Personaje3.png',
+        'PersonajeChica1.png',
+        'PersonajesGoa333tAur3a.png',
+        'PersonajesGoatAura355533.png',
+        'PersonajeSouls.png',
+        'PersonajesSouls1.png',
+        'PlanoCercanoRostro.png',
+        'PlanoCercanoRostro3.png',
+        'PlanoCortoLetreros1.png',
+        'PortadaDiscoSouls.png',
+        'PortadaSoul452s.png',
+        'Post11.PNG',
+        'Post12.png',
+        'Post123.png',
+        'Post12356.png',
+        'Post3PostAnarko.png',
+        'Post6 (1).PNG',
+        'PostalDelCampoDeSetas.png',
+        'Posteo10Meme.png',
+        'Posteo1Dibujo.png',
+        'Posteo1Dibujo2.png',
+        'Posteo1Dibujo3.png',
+        'Posteo1Dibujo4.png',
+        'Posteo1Meme.png',
+        'Posteo2Meme.png',
+        'Posteo3Meme.png',
+        'Posteo4Meme.png',
+        'Posteo6Meme.png',
+        'Posteo7Meme.png',
+        'Posteo8Meme.png',
+        'PosteoSoul1NEWGEN.png',
+        'PosteoSoul4NEWGEN.png',
+        'PosterSoulsarchive22.png',
+        'Pozo.png',
+        'PrimerLapsus.png',
+        'Prototipo DomoKun1.png',
+        'Rem1.png',
+        'Rem3.png',
+        'Rem4.png',
+        'Rem5.png',
+        'SalaLlena.png',
+        'SD3434.png',
+        'Si3434324n título-1.png',
+        'SimbologiaEnSoulsarchive2.png',
+        'Sin tí34343tulo-1.png',
+        'Sin títul4545o-1.png',
+        'Sin título-1325323523.png',
+        'Sin título-13432224.png',
+        'Sin título-13434.png',
+        'Sin título-14534554.png',
+        'Sin título-14554.png',
+        'Sin título-15435.png',
+        'Sin título-17878.png',
+        'Sin título-180.png',
+        'Sin título-23231.png',
+        'Sin título-324321.png',
+        'Sin título-341.png',
+        'Sin título-343334431.png',
+        'Sin título-3434341.png',
+        'Sin título-45541.png',
+        'SoulsarchiveTarjetas.png',
+        'SoulsarchiveUrbano334.png',
+        'Tentaculos1.png',
+        'TerrenoDeMontañasSoleado.png',
+        'TodosPaisaje1.png',
+        'Trust3Buzo.png',
+        'Trust7Buzo.png',
+        'Un recuerdo2 .png',
+        'upscalemedia-transformed (12).png',
+        'VisitanteEnLaPuerta1.png',
+        'VisitanteEnLaPuerta2.png',
+        'Waifu1.png'
+      ];
+
+      for (let index = images.length - 1; index > 0; index -= 1) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [images[index], images[randomIndex]] = [images[randomIndex], images[index]];
+      }
+
+      const gallery = document.getElementById('gallery');
+      const emptyGallery = document.getElementById('emptyGallery');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      images.forEach((fileName) => {
+        const button = document.createElement('button');
+        const image = document.createElement('img');
+
+        button.className = 'art-button';
+        button.type = 'button';
+        image.src = `./imagenes/${fileName}`;
+        image.alt = `Obra de arte ${fileName}`;
+        image.loading = 'lazy';
+        button.appendChild(image);
+        gallery.appendChild(button);
+
+        button.addEventListener('click', () => {
+          lightboxImage.src = image.src;
+          lightboxImage.alt = image.alt;
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      emptyGallery.hidden = images.length > 0;
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      };
+
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox || event.target === lightboxClose) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+    </script>
+  </body>
+</html>

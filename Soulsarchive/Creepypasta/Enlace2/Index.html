@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="EstilosEnlace2.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet"> <!-- Fuente gótica de Google Fonts -->
+    <title>SoulArchive.com</title>
+    <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- Reproductor de Musica -->
+
+  <div class="music-player glitch" id="music-player">
+    <h2>Mp3 Player</h2>
+    <hr>
+    <p id="song-title"></p>
+    <img id="song-icon" src="default-icon.png" alt="Song Icon">
+    <div class="controls">
+        <button id="prev-button">&#9664;</button>
+        <button id="play-pause-button">&#9654;</button>
+        <button id="next-button">&#9654;</button>
+    </div>
+    <audio id="audio-player"></audio>
+</div>
+
+<audio autoplay loop>
+    <source src="Grito.mp3" type="audio/mp3">
+    Tu navegador no soporta la reproducción de audio.
+</audio>
+
+<!-- Reproductor de Musica -->
+
+    <div class="clickable-square glitch"></div>
+
+    <div id="loader" class="loader">
+    <video id="loading-video" src="LoadinPequeno.mp4" muted autoplay loop></video>
+    </div>
+    <button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+    <div id="overlayImage"></div>
+    <button id="changeBackgroundButton">💀</button>
+    <script src="scripts.js"></script>
+
+<!-- Jueguito -->
+    <div id="gameContainer glitch">
+        <button id="playButton">Play</button>
+        <canvas id="gameCanvas"></canvas>
+        <div id="score">Score: 0</div>
+    </div>
+
+    <div id="titleContainer">
+        <h1 id="galleryTitle">¡Establece un vinculo social
+            <p> con las almas!</p></h1>
+    </div>
+
+<!-- Efecto VHS y Glitch Overlay -->
+<div id="vhs-glitch-overlay"></div>
+
+<!-- Pantallazos negros -->
+<div id="black-flash"></div>
+
+<!-- Imágenes aleatorias a pantalla completa -->
+<div id="random-image-overlay">
+    <img id="random-image" src="" alt="Random Image">
+</div>
+
+    <div class="imageGridContainer glitch">
+        <script src="script.js"></script>
+            <div id="imageGrid">
+                <!-- Crear filas de imágenes visibles -->
+                <div class="row">
+                    <div class="column">
+                        <div class="mediaContainer glitch">
+                            <img src="Fotos/Img1.jpg" alt="Descripción imagen 1">
+                        </div>
+                        <p>Gta 5 CromoCar</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <img src="Fotos/img2.jpg" alt="Descripción imagen 2">
+                        </div>
+                        <p>swag</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <img src="Fotos/Img3.jpg" alt="Descripción imagen 3">
+                        </div>
+                        <p>*o*</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="mediaContainer glitch">
+                            <img src="Fotos/Img4.jpg" alt="Descripción imagen 4">
+                        </div>
+                        <p>28/12/2023</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <img src="Fotos/Img5.jpg" alt="Descripción imagen 5">
+                        </div>
+                        <p>BurgerKing 2010 Vibes</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <img src="Fotos/Img6.jpg" alt="Descripción imagen 6">
+                        </div>
+                        <p>...</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <img src="Fotos/Img7.jpg" alt="Descripción imagen 7">
+                        </div>
+                        <p>PicaBoo</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer glitch">
+                            <img src="Fotos/Img8.jpg" alt="Descripción imagen 8">
+                        </div>
+                        <p>TrollFace</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <img src="Fotos/Img9.jpg" alt="Descripción imagen 9">
+                        </div>
+                        <p>Bony</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="mediaContainer glitch">
+                            <img src="Fotos/Img10.jpg" alt="Descripción imagen 10">
+                        </div>
+                        <p>background-color: SkyBlue</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <img src="Fotos/Img11.jpg" alt="Descripción imagen 11">
+                        </div>
+                        <p>Tienda de mi novia</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <img src="Fotos/Img12.jpg" alt="Descripción imagen 12">
+                        </div>
+                        <p>HardRock Cafe Uruguay</p>
+                    </div>
+                </div>
+                <!-- Repetir para más filas visibles -->
+    
+                <!-- Filas cubiertas por el video -->
+                <div class="row covered">
+                    <div class="column">
+                        <div class="mediaContainer glitch">
+                            <video src="Cargando.mp4" autoplay loop muted></video>
+                            <img src="Fotos/Img13.jpg" alt="Descripción imagen 13" class="hiddenImage">
+                        </div>
+                        <p>Descripción imagen 13</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer glitch">
+                            <video src="Cargando.mp4" autoplay loop muted></video>
+                            <img src="Fotos/Img14.jpg" alt="Descripción imagen 14" class="hiddenImage">
+                        </div>
+                        <p>Descripción imagen 14</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer glitch">
+                            <video src="Cargando.mp4" autoplay loop muted></video>
+                            <img src="Fotos/Img15.jpg" alt="Descripción imagen 15" class="hiddenImage">
+                        </div>
+                        <p class="glitch">Descripción imagen 15</p>
+                    </div>
+                </div>
+                <div class="row covered">
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <video src="Cargando.mp4" autoplay loop muted></video>
+                            <img src="Fotos/Img16.jpg" alt="Descripción imagen 17" class="hiddenImage">
+                        </div>
+                        <p>Descripción imagen 16</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <video src="Cargando.mp4" autoplay loop muted></video>
+                            <img src="Fotos/Img17.jpg" alt="Descripción imagen 17" class="hiddenImage">
+                        </div>
+                        <p>Descripción imagen 17</p>
+                    </div>
+                    <div class="column">
+                        <div class="mediaContainer">
+                            <video src="Cargando.mp4" autoplay loop muted></video>
+                            <img src="Fotos/Img18.jpg" alt="Descripción imagen 18" class="hiddenImage">
+                        </div>
+                        <p>Descripción imagen 18</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="codeInputSection">
+            <input type="text" id="codeInput" placeholder="...">
+            <button id="submitButton">Enviar</button>
+            <p id="feedbackMessage"></p>
+        <script src="script.js"></script>
+    </div>
+
+    <audio id="successSound" src="Success.mp3"></audio>
+    <audio id="successSound2" src="Fail.mp3"></audio>
+    <script src="script.js"></script>
+
+<!-- Inicio publiciaciones -->
+
+    <div class="contenedor-publicaciones">
+        <img src="Img26.5.png" alt="Imagen de cabecera" class="imagen-cabecera glitch">
+        <div class="publicacion">
+            <div class="perfil">
+                <img src="FotoPerfil1.jpg" alt="Foto de perfil" class="foto-perfil">
+                <span class="nombre-usuario">SoulMedia.com</span>
+            </div>
+            <p class="texto-publicacion">La experiencia del Almanatra no es tan solo un libro que representa lo que fui, es un texto que habla sobre el mundo humano, tambien muestra los sentimientos vívidos y los seres del más allá.</p>
+            <span class="fecha-publicacion">Fecha de publicación 12:45am 29/7/2024</span>
+        </div>
+        <div class="publicacion">
+            <div class="perfil">
+                <img src="FotoPerfil4.png" alt="Foto de perfil" class="foto-perfil">
+                <span class="nombre-usuario">Raito</span>
+            </div>
+            <p class="texto-publicacion">La red causa intriga, no es tan solo un confesionario en el cual ahogar las penas, es otro mundo, otro plano, otra parte de nuestro ser, somos otro cuerpo como nuestro cuerpo fisico, como nuestra otra unica representación en los altos mundos</p>
+            <span class="fecha-publicacion">Fecha de publicación 10:52pm 00/00/9999</span>
+        </div>
+        <div class="publicacion">
+            <div class="perfil">
+                <img src="FotoPerfil3.jpg" alt="Foto de perfil" class="foto-perfil glitch">
+                <span class="nombre-usuario">Ken</span>
+            </div>
+            <p class="texto-publicacion">nyancat.mp3<img src="NyanCat.gif" alt="" class=""></p>
+            <span class="fecha-publicacion">Fecha de publicación 14:37 02/04/2011</span>
+        </div>
+        <div class="publicacion">
+            <div class="perfil">
+                <img src="FotoPerfil2.jpg" alt="Foto de perfil" class="foto-perfil">
+                <span class="nombre-usuario">Anonymous</span>
+            </div>
+            <p class="texto-publicacion">01001100 01101111 01110011 00100000 01110110 01101111 01111001 00100000 01100001 00100000 01101000 01100001 01100011 01101011 01100101 01100001 01110010 00100000 01100001 00100000 01110100 01101111 01100100 01101111 01110011 00100000 00101101 00100000 00110000 00110001 00110000 00110000 00100000  </p>
+            <span class="fecha-publicacion glitch">Fecha de publicación 12:45 07/06/2003</span>
+        </div>
+        <div class="publicacion">
+            <div class="perfil">
+                <img src="FotoPerfil6.png" alt="Foto de perfil" class="foto-perfil">
+                <span class="nombre-usuario">Instrucciones</span>
+            </div>
+            <p class="texto-publicacion">Esta es la guia para nada precisa de la pagina SoulArchive.com. <p> 1)El objetivo es encontrar codigos, asi que no hagas trampa porque pierde la gracia <p> 2)primero necesitas conseguir el primer codigo de 7 numeros para desbloquear el panel <p>3) procura seguir vivo y disfrutar :D</p></p></p></p>
+            <span class="fecha-publicacion">Fecha de publicación 12:45 28/06/2024</span>
+        </div>
+        <div class="publicacion">
+            <div class="perfil">
+                <img src="FotoPerfil5.jpg" alt="Foto de perfil" class="foto-perfil">
+                <span class="nombre-usuario">Usuario Eliminado</span>
+            </div>
+            <p class="texto-publicacion">Mueran todos<p><s><i>Enlace Baneado</i></s></p></p>
+            <span class="fecha-publicacion">Fecha de publicación 12:45 01/01/2020</span>
+        </div>
+        <!-- Repite el bloque de la publicación 3 veces más -->
+    </div>
+
+<!-- Fin publicaciones -->
+
+
+
+    <!-- Publicidad -->
+     <!-- Contenedor de imagen izquierda -->
+    <div class="image-container left glitch">
+        <a href="Chat Con espiritu Charlatan/index.html">
+            <img src="EspirituCharlatan.png" alt="Imagen intermitente izquierda" class="intermittent-image left">
+        </a>
+        <span class="close-button">&times;</span>
+    </div>
+    
+    <!-- Contenedor de imagen derecha -->
+    <div class="image-container right glitch">
+        <a href="Screamer2/indexScream.html">
+            <img src="PubTrucha.jpg" alt="Imagen intermitente derecha" class="intermittent-image right">
+        </a>
+        <span class="close-button">&times;</span>
+    </div>
+
+    <!-- Cartel de texto -->
+    <div class="fixed-text-container glitch">
+        <div class="fixed-text">
+            2024 - <a href="https://www.example.com" class="clickable-word">Documental</a> - SoulArchive.com experience
+        </div>
+    </div>
+
+    <!-- Aparicion -->
+    <div class="inactive-image" id="inactiveImage">
+        <img src="Aparicion.png" alt="Imagen de Inactividad">
+    </div>
+
+    <div id="resolution-warning">
+        <img src="Cartel.png" width="400px">
+    </div>
+
+</body>
+<script src="script.js"></script>
+</html>

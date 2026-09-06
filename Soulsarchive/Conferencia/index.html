@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La conferencia de Paz</title>
+  <link rel="icon" href="Logo3.PNG" type="image/png">
+  <link rel="stylesheet" href="styles8.css">
+</head>
+<body>
+
+<button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+
+    <!-- Botón de reproducción -->
+<button id="play-button" class="play-button">
+    &#9654; <!-- Símbolo de triángulo (play) -->
+  </button>
+  
+    <div class="container">
+    <!-- Imagen de fondo -->
+    <div class="background" id="background"></div>
+    <!-- Reproductor de audio -->
+    <audio id="audio" autoplay>
+      <source src="Conferencia1.mp3" type="audio/mp3">
+      Tu navegador no soporta este audio.
+    </audio>
+    <!-- Rectángulo de subtítulos -->
+    <div class="subtitles-box" id="subtitles-box">
+      <p id="subtitles-text"></p>
+    </div>
+  </div>
+  <script src="script3.js"></script>
+</body>
+</html>

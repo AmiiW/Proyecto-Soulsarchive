@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: url('Cielo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #87CEEB; /* Color de respaldo en caso de que la imagen no cargue */
+}
+
+#balloon-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(-150px);
+    }
+}
+
+.balloon {
+    opacity: 82%;
+    position: absolute;
+    width: 100px;
+    height: 140px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    animation: float 7s linear infinite; /* Ajusta la duración según tus preferencias */
+}
+
+.balloon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

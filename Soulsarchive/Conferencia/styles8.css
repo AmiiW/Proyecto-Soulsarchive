@@ -1,0 +1,104 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Fondo de la página */
+.background {
+    background: url('LuzCharla1.png') no-repeat center center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: background 1s ease;
+}
+
+/* Reproductor de audio */
+audio {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Caja de subtítulos */
+.subtitles-box {
+    position: fixed;
+    bottom: 120px; /* Distancia del borde inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Responsive */
+    max-width: 800px;
+    background-color: rgba(128, 128, 128, 0.9);
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Estilo del texto */
+.subtitles-box p {
+    margin: 0;
+    color: white;
+    font-size: 24px; /* Tamaño de letra más grande */
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+/* Para pantallas de celular */
+@media screen and (max-width: 600px) {
+
+    .subtitles-box {
+      width: 85%; /* Reducción del ancho en móviles */
+      font-size: 9px; /* Tamaño de fuente más pequeño */
+      bottom: 10px; /* Ajuste de la posición de los subtítulos */
+    }
+  }
+
+  /* Estilo del botón de play */
+.play-button {
+    position: fixed;
+    bottom: 20px; /* Ubicación en la parte inferior */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  /* Cambiar el color al pasar el cursor */
+  .play-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  /* Boton para ir atras */
+
+#backButton {
+    z-index: 999;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Fin de boton para ir atras */

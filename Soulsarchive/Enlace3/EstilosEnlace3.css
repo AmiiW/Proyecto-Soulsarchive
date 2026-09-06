@@ -1,0 +1,89 @@
+#image-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000; /* Asegurar que el contenedor esté por encima de otros elementos */
+}
+
+.image {
+    position: absolute;
+    width: 10vw; /* Las imágenes tendrán un ancho del 10% del ancho de la pantalla */
+    height: auto; /* Mantener la proporción */
+    box-shadow: 0 0 10px 5px white;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Página de carga */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease;
+    z-index: 10000;
+}
+
+#loader.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Evitar que se pueda interactuar con el loader cuando está desapareciendo */
+}
+
+#loader img {
+    max-width: 100%; /* Ajusta el tamaño del gif según tu preferencia */
+    max-height: 100%;
+}
+
+/* Ocultar contenido por defecto hasta que cargue la página */
+#content {
+    display: none;
+}
+
+/* Mostrar contenido cuando la carga finalice */
+#content.show {
+    display: block;
+}
+
+/* Fin pantalla de carga */
+
+/* Boton para ir atras */
+
+#backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Fin de boton para ir atras */
+
+#screenshotButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 50px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001; /* Asegúrate de que esté por encima de la capa z-index 1000 */
+}
+
+#screenshotButton img {
+    width: 48px;
+    height: 48px;
+}

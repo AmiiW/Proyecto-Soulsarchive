@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucciones</title>
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+   
+</head>
+<body>
+    <div id="loader" class="loader">
+        <video id="loading-video" src="LoadingJuego.mp4" muted autoplay loop></video>
+        </div>
+        <button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+
+    <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="Nubes.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="overlay">
+            <img src="Pergamino.png" alt="Imagen centrada">
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="title">MANUAL DE LA INTERNET CAVE</h1>
+        <div class="text">
+            <p>Haz Clic en los circulos de colores para dañar al enemigo. 2 clics hacen bastante daño, Mas de 3 clics a un mismo circulo significa una ruleta rusa a favor de ti o a favor de tu contrincante. Ten en cuenta lo siguiente:</p>
+        </div>
+        <div class="instructions">
+            <div class="row">
+                <div class="images">
+                    <img src="Potion1.png" alt="Imagen 1">
+                    <img src="Enemigo2.PNG" alt="Imagen 2">
+                    <img src="Enemigo3.PNG" alt="Imagen 3">
+                    <img src="Enemigo.PNG" alt="Imagen 4">
+                </div>
+                <div class="text">
+                    <p>ELIXIR DE SANGIJUELA: Los colores Violeta y sus derivados restablecen la Salud del enemigo en cierto porcentaje. No les ataques con su propia medicina.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="images">
+                    <img src="Potion2.png" alt="Imagen 5">
+                    <img src="Vida.PNG" alt="Imagen 6">
+                </div>
+                <div class="text">
+                    <p>ELIXIR SELLADOR: esta posima sella tu alma para que no salga volando... Restablece tu vida un 3% o mas dependiendo del nivel.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="images">
+                    <img src="CRITICO.PNG" alt="Imagen 7">
+                </div>
+                <div class="text">
+                    <p>CRITICO: este ataque es muy poco comun, los habitantes del campo de setas tienen mucha destreza, casi imposible acertar un golpe de esta indole.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text">
+                    <p>DIFICULTAD FACIL: solo aparece un circulo a la vez, el enemigo no se cura por si mismo. Ideal para bebes exploradores.</p>
+                </div>
+                <div class="text">
+                    <p>DIFICULTAD NORMAL: un maximo de 20 circulos a la vez, los circulos desaparecen rapidamente, se añade la posibilidad de ataques criticos.</p>
+                </div>
+                <div class="text">
+                    <p>DIFICULTAD DIFICIL: Los circulos se escapan de ti, persiguelos y busca ganarle a LA CREACIÓN. Es necesario asestar el ultimo golpe <b>critico</b> para vencerlo.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

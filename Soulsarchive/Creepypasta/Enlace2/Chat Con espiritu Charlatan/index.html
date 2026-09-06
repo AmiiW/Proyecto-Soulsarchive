@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversación con el Personaje</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet"> <!-- Google Fonts link -->
+</head>
+</head>
+<body>
+
+    <div id="loader" class="loader">
+        <video id="loading-video" src="LoadinPequeno.mp4" muted autoplay loop></video>
+        </div>
+        <button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+
+    <div class="container">
+        <h1 id="characterName">Espiritu Charlatan</h1>
+        <div class="character">
+            <img id="characterImage" src="Cerrado.png" alt="Personaje" onclick="handleImageClick()">
+        </div>
+        <div class="response" id="responseBox"></div>
+        <div class="buttons" id="buttonContainer">
+            <button onclick="handleButtonClick(0, 0)">¿Que es este lugar?</button>
+            <button onclick="handleButtonClick(1, 0)">Buenas noches</button>
+            <button onclick="handleButtonClick(2, 0)">[ Hacer ruidos extraños ]</button>
+            <button onclick="handleButtonClick(3, 0)">¿Quien eres tu?</button>
+            <button onclick="handleButtonClick(4, 0)">Ima</button>
+        </div>
+    </div>
+
+    <audio id="audio" src="Sonido2.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

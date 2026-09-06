@@ -1,0 +1,789 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: rgb(0, 0, 255); /* Azul fuerte crudo */
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    position: sticky;
+    top: 0; /* El header se fija en la parte superior de la ventana */
+    z-index: 10; /* Asegura que el header esté encima de otros elementos */
+    background-color: rgb(0, 0, 255); /* Fondo azul fuerte */
+    padding-top: 30px;
+  }
+
+#easterEgg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1; /* Asegura que esté por encima de todos los elementos */
+}
+
+#easterEggImage {
+  max-width: 260px; /* Tamaño inicial */
+  height: auto;
+  cursor: pointer;
+}
+
+  /* Botón con estética internet antiguo */
+.antiqueButton {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: #000;
+  background-color: #f0f0f0;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0px #888;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.antiqueButton:hover {
+  background-color: #e0e0e0;
+}
+
+.antiqueButton:active {
+  box-shadow: 1px 1px 0px #888;
+  transform: translate(1px, 1px);
+}
+
+.cop{
+  display: none;
+}
+  
+  .logo {
+    width: 100%;
+    max-width: 1000px; /* Ajuste para responsividad */
+  }
+  
+  .contenido {
+    padding: 20px;
+  }
+
+  .ventana {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Ajuste de tamaño para resoluciones de computadora */
+    aspect-ratio: 5 / 2; /* Relación de aspecto para mantener las proporciones */
+    margin: 20px auto;
+    border: 3px solid #c0c0c0; /* Borde gris estilo XP */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra retro */
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .imagen-contenido {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .boton-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid #8b0000;
+  }
+  
+  .boton-cerrar:hover {
+    background-color: #ff4c4c;
+  }
+  
+  /* Animación de temblor */
+  @keyframes temblor {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
+  
+  .temblor {
+    animation: temblor 0.3s ease-in-out;
+  }
+  
+  /* Responsividad para pantallas pequeñas */
+  @media (max-height: 768px) {
+    .ventana {
+      max-width: 100%;
+      aspect-ratio: 5 / 2;
+    }
+    .boton-cerrar {
+      width: 25px;
+      height: 25px;
+    }
+
+    .ventana.cuadrada {
+      max-width: 80%;
+    }
+  
+    #easterEggImage {
+      max-width: 210px; /* Se achica en pantallas pequeñas */
+    }
+  
+}
+
+@media screen and (max-width: 600px) {
+  .cartel {
+      width: 60%; /* Se reduce un poco más en pantallas pequeñas */
+  }
+
+  .close-btn {
+      font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rainbow-text{
+    display: none;
+  }
+
+  .logo {
+    max-width: 350px;
+  }
+
+  #easterEggImage {
+    width: 200px; /* Se achica en pantallas pequeñas */
+  }
+
+  .antiqueButton {
+    position: fixed;
+    top: 8px;
+    right: 7px;
+    padding: 5px 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    color: #000;
+    background-color: #f0f0f0;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0px #888;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cop{
+  display:block;
+}
+
+.cartel {
+  width: 60%; /* Se reduce un poco más en pantallas pequeñas */
+}
+
+.close-btn {
+  font-size: 18px;
+}
+
+}
+
+@media (max-height: 680px) {
+  #easterEggImage {
+    max-width: 140px; /* Se achica aún más en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 790px) {
+  #easterEggImage {
+    max-width: 100px; /* Se achica en pantallas pequeñas */
+  }
+
+  
+}
+
+/* Contenedor cuadrado estilo XP */
+.ventana.cuadrada {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Tamaño máximo del contenedor cuadrado */
+  aspect-ratio: 1 / 1; /* Relación de aspecto cuadrada */
+  margin: 20px auto;
+  border: 3px solid #c0c0c0; /* Borde gris estilo XP */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra retro */
+  overflow: auto; /* Activa el scroll cuando el contenido excede el tamaño */
+  background-color: rgb(0, 0, 0);
+}
+
+.menu {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Responsividad para el menú */
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin: 10px 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Botón de cierre en el nuevo contenedor cuadrado */
+.ventana.cuadrada .boton-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #8b0000;
+}
+
+.ventana.cuadrada .boton-cerrar:hover {
+  background-color: #ff4c4c;
+}
+
+.contenedor1{
+  padding-top: 30px;
+  text-align: center;
+}
+
+.presentacion{
+  padding-top: 10px;
+  margin-bottom: 10px;
+  font-family:'Franklin Gothic Medium';
+  font-size: 18px;
+  color: rgb(160, 149, 255);
+  margin:0px auto;
+  background-color: rgb(68, 73, 78);
+  width: 300px;
+  height: auto;
+}
+
+.contenedor{
+  padding-top: 20px;
+  margin:0px auto;
+  text-align: center;
+  background-color: rgba(110, 112, 112, 0.61);
+  width: 300px;
+  height: 323px;
+}
+
+.botonW{
+  font-family:'Franklin Gothic Medium';
+  color: rgb(160, 149, 255);
+  width: 100px;
+  height: 30px;
+  
+}
+
+.footer {
+  position: fixed;
+  bottom: 20px; /* Puedes ajustar esta distancia según tus necesidades */
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.rainbow-text {
+  font-size: 35px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  animation: rainbow 3s infinite, move 3s infinite linear;
+}
+
+@keyframes rainbow {
+  0% { color: red; }
+  16.6% { color: orange; }
+  33.3% { color: yellow; }
+  50% { color: green; }
+  66.6% { color: blue; }
+  83.3% { color: indigo; }
+  100% { color: violet; }
+}
+
+@keyframes move {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(3px, -3px); }
+  50% { transform: translate(-3px, 3px); }
+  75% { transform: translate(3px, 3px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes tintineo {
+  0%, 100% {
+    opacity: 1; /* Opacidad al 100% */
+  }
+  50% {
+    opacity: 0.8; /* Opacidad al 80% */
+  }
+}
+
+.logo {
+  width: 100%;
+  max-width: 1000px; /* Ajuste para responsividad */
+  animation: tintineo 5s ease-in-out infinite; /* Duración lenta y repetición infinita */
+}
+
+/* Introducir codigo */
+
+.hidden {
+  display: none;
+}
+
+.overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Asegura que esté por encima de otros elementos */
+}
+
+.overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Asegura que esté por encima de otros elementos */
+}
+
+.code-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+  margin-bottom: 260px;
+}
+
+#buttonContainer {
+  margin-top: 20px;
+  margin-left: 110px;
+}
+
+/* Botón con estética internet antiguo */
+#antiqueButton {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: #000;
+  background-color: #f0f0f0;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0px #888;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#antiqueButton:hover {
+  background-color: #e0e0e0;
+}
+
+#antiqueButton:active {
+  box-shadow: 1px 1px 0px #888;
+  transform: translate(1px, 1px);
+}
+
+.clear-cache-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.clear-cache-button:active {
+  background-color: darkred;
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  text-shadow: 1px 1px #f00, -1px -1px #0f0, 3px 3px #00f;
+  animation: glitch-animation 1s infinite;
+}
+
+@keyframes glitch-animation {
+  0% {
+      transform: translate(0);
+      clip: rect(12px, 9999px, 55px, 0);
+  }
+  10% {
+      transform: translate(-1px, 1px);
+  }
+  20% {
+      transform: translate(1px, -1px);
+  }
+  30% {
+      transform: translate(-2px, 2px);
+      clip: rect(85px, 9999px, 140px, 0);
+  }
+  40% {
+      transform: translate(2px, -2px);
+  }
+  50% {
+      transform: translate(0, 0);
+  }
+  60% {
+      transform: translate(-2px, 2px);
+  }
+  70% {
+      transform: translate(2px, -2px);
+      clip: rect(45px, 9999px, 90px, 0);
+  }
+  80% {
+      transform: translate(-1px, 1px);
+  }
+  90% {
+      transform: translate(1px, -1px);
+  }
+  100% {
+      transform: translate(0, 0);
+  }
+}
+
+/* Estilo para el contenedor de video */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; /* Ajusta según tus necesidades */
+  aspect-ratio: 16 / 9; /* Relación de aspecto para el video */
+  margin: 20px auto;
+  border: 3px solid #c0c0c0; /* Borde gris estilo XP */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra retro */
+  overflow: hidden;
+  background-color: white;
+}
+
+.video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 768px) {
+  .video-container {
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Ajustes para el video */
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Botón de cierre en el contenedor de video */
+.video-container .boton-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #8b0000;
+}
+
+.video-container .boton-cerrar:hover {
+  background-color: #ff4c4c;
+}
+
+.temblor {
+  animation: temblar 0.3s;
+}
+
+@keyframes temblar {
+  0% { transform: translate(0); }
+  25% { transform: translate(-2px, 0); }
+  50% { transform: translate(2px, 0); }
+  75% { transform: translate(-2px, 0); }
+  100% { transform: translate(0); }
+}
+
+/* Contenedor para mantener las imágenes de fondo */
+.falling-images-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Colocar detrás del contenido */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.falling-image {
+  position: absolute;
+  width: 40px; /* Tamaño de cada imagen */
+  height: 40px;
+  animation: fall linear infinite;
+  opacity: 0;
+}
+
+/* Animación para la caída */
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.xp-container {
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border: 2px solid #c0c0c0;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: Tahoma, sans-serif;
+  text-align: center;
+}
+
+.code-input-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+#codeInput {
+  width: 60%;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #c0c0c0;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #e0e0e0;
+  border: 1px solid #c0c0c0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #d0d0d0;
+}
+
+#videoContainer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+#notification {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.poc{
+  font-size: 13px;
+}
+
+/* Cartel */
+
+.cartel {
+  position: fixed;
+  top: -100%; /* Inicialmente fuera de la pantalla */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%; /* Ajusta el tamaño según lo necesites */
+  max-width: 300px; /* Limita el tamaño máximo a 300px */
+  background-color: transparent;
+  z-index: 1000;
+  transition: top 0.5s ease-in-out;
+}
+
+.cartel-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.close-btn {
+  font-family: 'Courier New';
+  font-size: 24px;
+  margin-right: 10px;
+  margin-top: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 20px rgb(255, 0, 0);
+  padding: 5px;
+  border-radius: 50%;
+}
+
+/* Página de carga */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 1s ease;
+  z-index: 10000;
+}
+
+#loader.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Evitar que se pueda interactuar con el loader cuando está desapareciendo */
+}
+
+#loader img {
+  max-width: 100%; /* Ajusta el tamaño del gif según tu preferencia */
+  max-height: 100%;
+}
+
+/* Ocultar contenido por defecto hasta que cargue la página */
+#content {
+  display: none;
+}
+
+/* Mostrar contenido cuando la carga finalice */
+#content.show {
+  display: block;
+}
+
+/* Fin pantalla de carga */
+
+.static-text {
+  position: fixed;
+  top: 5px; /* Ajusta este valor para cambiar la distancia desde la parte superior */
+  left: 5px; /* Ajusta este valor para cambiar la distancia desde la parte derecha */
+  font-size: 16px; /* Ajusta el tamaño de la fuente según tu preferencia */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con un poco de transparencia */
+  padding: 5px 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra para darle un poco de estilo */
+  z-index: 1000; /* Asegura que se mantenga sobre otros elementos de la página */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: black; /* Cambia el color del texto */
+}
+
+.static-text:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Cambia el color de fondo al pasar el mouse */
+  color: white; /* Cambia el color del texto al pasar el mouse */
+}
+
+/* Fondo general del aviso */
+#popup-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Asegura que esté sobre todo */
+}
+
+/* Contenido del aviso */
+.popup-content {
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: white;
+  border: 2px solid #000080; /* Azul estilo Windows XP */
+  border-radius: 8px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Sombra */
+  text-align: center;
+  font-family: "Tahoma", sans-serif; /* Fuente clásica de Windows XP */
+  color: #000080; /* Azul oscuro */
+}
+
+/* Botón OK */
+#popup-ok {
+  margin-top: 20px;
+  padding: 5px 15px;
+  background-color: #c0c0c0; /* Gris claro estilo XP */
+  border: 2px solid #808080; /* Gris oscuro */
+  border-radius: 3px;
+  font-family: "Tahoma", sans-serif;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+}
+
+#popup-ok:hover {
+  background-color: #dcdcdc; /* Gris más claro al pasar el mouse */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .popup-content {
+    font-size: 0.9rem;
+  }
+
+  #popup-ok {
+    font-size: 0.85rem;
+  }
+}

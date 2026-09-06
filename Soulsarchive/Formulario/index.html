@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testeo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Archivador.png" type="image/png">
+</head>
+<body>
+    <div id="form-container">
+        <img src="Almanatra2.png" alt="Título" class="form-title">
+        <p class="form-text">Rellena el formulario de Testeo para enviárselo al alma constructora</p>
+        <p>Enviar a:</p>
+        <p>--> amsoularchive@gmail.com <--</p>
+        <label for="name">Nombre</label>
+        <input type="text" id="name" class="form-input">
+        
+        <label for="subject">Asunto</label>
+        <input type="text" id="subject" class="form-input">
+        
+        <label for="message">Mensaje</label>
+        <textarea id="message" class="form-textarea"></textarea>
+        
+        <button id="download-btn">Descargar</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>

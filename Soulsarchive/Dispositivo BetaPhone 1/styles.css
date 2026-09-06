@@ -1,0 +1,397 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000000;
+    text-shadow: 0px 0px 2px #cc0202;
+}
+
+.phone-container {
+    background-color: #333;
+    width: 340px;
+    height: 600px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 0 20px rgba(94, 78, 245, 0.5);
+    position: relative;
+}
+
+.screen {
+    background-color: #fff;
+    width: 300px;
+    height: 470px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lock-screen, .home-screen, .app-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.lock-screen {
+        background-color: #000;
+        color: #000000;
+        text-shadow: 0px 0px 15px #ffffff;
+        z-index: 2;
+        background-image: url('Fondo1.png');
+        background-size: cover; /* Hace que la imagen se ajuste al tamaño del contenedor */
+        background-position: center; /* Centra la imagen en el contenedor */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+
+}
+
+.date-time {
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+.time {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.unlock-text {
+    position: absolute;
+    bottom: 20px;
+    font-size: 16px;
+}
+
+.home-screen {
+    background-image: url('Fondo2.png');
+    background-size: cover; /* Hace que la imagen se ajuste al tamaño del contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-color: #f0f0f0;
+    transform: translateY(100%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.status-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #8d8d8d;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.status-time {
+    margin-left: 20px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.app-screen {
+    display: flex;
+    flex-direction: row;
+    width: 200%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.app-grid {
+    line-height: 0.3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 50px 20px 20px;
+    width: 100%;
+    flex: 1;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-icon {
+    background-color: #ddd;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+}
+
+.app-title {
+    font-size: 12px;
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #888;
+    border-radius: 50%;
+    margin: 0 5px;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.pagination-dot.active {
+    opacity: 1;
+}
+
+.app-content {
+    background-color: #fff;
+    transform: scale(0);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    overflow-y: auto; /* Habilita el scroll vertical */
+   
+    max-height: 100%; /* Limita la altura al contenedor padre */
+}
+
+.app-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.app-content::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+
+.home-button {
+    background-color: #555;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+}
+
+
+
+.settings {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.category {
+    margin-bottom: 20px;
+}
+
+.category h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.option {
+    margin-top: 10px;
+}
+
+.font-buttons, .background-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.font-button, .bg-button {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f0f0f0;
+}
+
+.font-button {
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.bg-button {
+    width: 50px;
+    height: 50px;
+}
+
+#text-color-picker, #phone-color-picker, #home-button-color-picker {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* Estilos específicos para cada opción en la sección de configuraciones */
+
+#text-color-picker, #phone-color-picker, #home-button-color-picker {
+    display: block;
+    margin-top: 5px;
+}
+
+.old-school-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace; /* Fuente de estilo antiguo */
+    color: #000000;
+    background-color: #e0e0e0; /* Color de fondo del botón */
+    border: 2px solid #000000; /* Borde del botón */
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra opcional */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+}
+
+.old-school-button:hover {
+    background-color: #c0c0c0; /* Color de fondo al pasar el ratón */
+    color: #000000;
+}
+
+#app2-content{
+    background-color: #000000;
+}
+
+#app4-content{
+    background-color: #bdbdbd;
+}
+
+#app5-content{
+    line-height: 1.2; /* o cualquier valor que prefieras, como 1.2 o 1.5 */
+    text-shadow: 0px 0px 5px black;
+    background-image: url('Bloc.jpg');
+}
+
+#app6-content{
+    background-color: #3f3f3f;
+}
+
+.title1{
+    font-size: 26px;
+    padding-bottom: 40px;
+}
+
+.Bloc{
+    width: 250px;
+    padding-bottom: 70px;
+}
+
+/* Reproductor de sonido */
+
+.music-player {
+
+    right: 20px;
+    bottom: 20px;
+    width: 270px;
+    background: #4b4b4b;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.music-player h2 {
+    margin: 0;
+}
+
+.music-player hr {
+    margin: 10px 0;
+}
+
+.music-player p {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.music-player img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Fin reproductor de musica */
+
+/* Simon dice */
+
+#level-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#game-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 220px;
+    margin: auto;
+    justify-content: center;
+}
+
+.button {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.1s ease-in-out;
+}
+
+#green { background-color: green; }
+#red { background-color: red; }
+#yellow { background-color: yellow; }
+#blue { background-color: blue; }
+
+.button.active {
+    opacity: 0.6;
+}
+
+#start-game {
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Fin simon dice */

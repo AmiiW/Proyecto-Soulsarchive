@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+    overflow: hidden;
+    background-color: #582020;
+}
+
+/* Efecto Glitch y VHS Overlay */
+#vhs-glitch-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    pointer-events: none;
+    background: transparent;
+    mix-blend-mode: difference;
+    animation: glitch-effect 3s infinite;
+    filter: contrast(1.5) saturate(2) hue-rotate(15deg) brightness(1.2);
+    opacity: 0.3;
+}
+
+/* Pantallazos negros */
+#black-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 10001;
+    opacity: 0;
+    pointer-events: none;
+    animation: flash-effect 10s infinite;
+}
+
+@keyframes flash-effect {
+    0%, 95% { opacity: 0; }
+    96%, 97% { opacity: 1; }
+    98%, 100% { opacity: 0; }
+}
+
+/* Imágenes aleatorias a pantalla completa */
+#random-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10002;
+    pointer-events: none;
+    opacity: 0;
+    background-color: transparent;
+}
+
+#random-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #f00, -1px -1px #0f0, 3px 3px #00f;
+    animation: glitch-animation 1s infinite;
+}
+
+@keyframes glitch-animation {
+    0% {
+        transform: translate(0);
+        clip: rect(12px, 9999px, 55px, 0);
+    }
+    10% {
+        transform: translate(-5px, 5px);
+    }
+    20% {
+        transform: translate(5px, -5px);
+    }
+    30% {
+        transform: translate(-5px, 5px);
+        clip: rect(85px, 9999px, 140px, 0);
+    }
+    40% {
+        transform: translate(5px, -5px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    60% {
+        transform: translate(-5px, 5px);
+    }
+    70% {
+        transform: translate(5px, -5px);
+        clip: rect(45px, 9999px, 90px, 0);
+    }
+    80% {
+        transform: translate(-5px, 5px);
+    }
+    90% {
+        transform: translate(5px, -5px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.contenedor1 {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.presentacion {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 18px;
+    color: rgb(255, 0, 0);
+    margin: 0px auto;
+    background-color: rgb(68, 73, 78);
+    width: 300px;
+    height: auto;
+}
+
+.contenedor {
+    padding-top: 20px;
+    margin: 0px auto;
+    text-align: center;
+    background-color: rgba(110, 112, 112, 0.61);
+    width: 300px;
+    height: 270px;
+}
+
+.botonW {
+    font-family: 'Franklin Gothic Medium';
+    color: rgb(160, 149, 255);
+    width: 100px;
+    height: 30px;
+}
+
+/* Pagina de carga */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s;
+    z-index: 1000;
+}
+
+#loader.fade-out {
+    opacity: 0;
+}
+
+#loader video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#content {
+    display: none;
+}
+
+#content.show {
+    display: block;
+}
+
+/* Fin de pagina de carga */
+
+/* Video y texto menu */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer {
+    position: fixed;
+    bottom: 20px; /* Puedes ajustar esta distancia según tus necesidades */
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.rainbow-text {
+    font-size: 35px; /* Ajusta el tamaño de la fuente según tus necesidades */
+    animation: rainbow 3s infinite, move 3s infinite linear;
+}
+
+@keyframes rainbow {
+    0% { color: red; }
+    16.6% { color: orange; }
+    33.3% { color: yellow; }
+    50% { color: green; }
+    66.6% { color: blue; }
+    83.3% { color: indigo; }
+    100% { color: violet; }
+}
+
+@keyframes move {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(3px, -3px); }
+    50% { transform: translate(-3px, 3px); }
+    75% { transform: translate(3px, 3px); }
+    100% { transform: translate(0px, 0px); }
+}
+
+/* Botón con estética internet antiguo */
+#antiqueButton {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #000;
+    background-color: #f0f0f0;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0px #888;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#antiqueButton:hover {
+    background-color: #e0e0e0;
+}
+
+#antiqueButton:active {
+    box-shadow: 1px 1px 0px #888;
+    transform: translate(1px, 1px);
+}
+
+.clear-cache-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.clear-cache-button:active {
+    background-color: darkred;
+}
+
+
+/* Pagina de carga */
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s;
+    z-index: 1000;
+}
+
+#loader.fade-out {
+    opacity: 0;
+}
+
+#loader video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#content {
+    display: none;
+}
+
+#content.show {
+    display: block;
+}
+
+/* Fin de pagina de carga */

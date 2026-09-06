@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NewGen Tipografia </title>
+    <link rel="icon" type="image/png" href="./Logo.png" />
+    <link rel="shortcut icon" href="./Logo.png" />
+    <link rel="apple-touch-icon" href="./Logo.png" />
+    <style>
+      @font-face {
+        font-family: "NewGen Soulsarchive";
+        src: url("./NewgenSoulsarchive-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "NewGen Soulsarchive OTF";
+        src: url("./NewgenSoulsarchive-Regular.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "NewGen Soulsarchive Bold";
+        src: url("./NewgenSoulsarchiveBold-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --bg: #f5f2eb;
+        --text: #080808;
+        --accent: #c51f1f;
+        --muted: #232323;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      body::before {
+        background-image:
+          linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+        background-size: 40px 40px;
+        mask-image: linear-gradient(180deg, rgba(0,0,0,0.8), transparent 80%);
+      }
+
+      body::after {
+        background: radial-gradient(circle at 20% 20%, rgba(197,31,31,0.16), transparent 28%),
+          radial-gradient(circle at 80% 10%, rgba(8,8,8,0.08), transparent 25%);
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px) 72px;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+        min-height: 78vh;
+      }
+
+      .hero-copy,
+      .intro-card {
+        min-width: 0;
+      }
+
+      .hero-copy {
+        max-width: 860px;
+      }
+
+      .hero-copy h1 {
+        margin: 0 0 12px;
+        font-family: "NewGen Soulsarchive", "Segoe UI", Arial, sans-serif;
+        font-size: clamp(3rem, 8.3vw, 7.8rem);
+        line-height: 0.9;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+
+      .hero-copy h1 span {
+        display: inline-block;
+        color: var(--accent);
+        margin-left: 0.05em;
+      }
+
+      .hero-copy p {
+        max-width: 740px;
+        font-size: clamp(1rem, 1.35vw, 1.08rem);
+        line-height: 1.75;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid var(--text);
+        padding: 8px 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: var(--text);
+        background: rgba(255,255,255,0.45);
+        margin-bottom: 16px;
+      }
+
+      .tag::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .intro-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(220px, 320px);
+        gap: 24px;
+        align-items: center;
+        border: 1px solid var(--text);
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(10px);
+        padding: 24px 28px;
+        box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .intro-card h2 {
+        margin: 0 0 10px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+      }
+
+      .intro-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.72;
+        font-size: 1rem;
+      }
+
+      .preview {
+        padding: 16px 18px;
+        border: 1px solid rgba(0,0,0,0.2);
+        background: #ffffff;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        min-height: 148px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-left: 3px solid var(--accent);
+      }
+
+      .preview strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.24em;
+        color: var(--accent);
+      }
+
+      .sample {
+        font-size: clamp(1.15rem, 2.4vw, 1.8rem);
+        line-height: 1.08;
+        font-family: "NewGen Soulsarchive", "Segoe UI", Arial, sans-serif;
+        letter-spacing: 0.02em;
+        color: var(--text);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .section {
+        margin-top: 48px;
+        display: grid;
+        gap: 24px;
+      }
+
+      .download-group {
+        display: grid;
+        gap: 12px;
+      }
+
+      .download-title {
+        margin: 0;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.24em;
+        color: var(--text);
+      }
+
+      .font-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        border: 1px solid var(--text);
+        background: rgba(255,255,255,0.74);
+        padding: 14px 14px;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .font-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      }
+
+      .font-card h3 {
+        margin: 0 0 6px;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+
+      .font-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.5;
+        font-size: 0.94rem;
+      }
+
+      .font-meta {
+        flex: 1 1 220px;
+        min-width: 0;
+      }
+
+      .install-btn {
+        appearance: none;
+        border: none;
+        background: var(--text);
+        color: white;
+        text-decoration: none;
+        padding: 10px 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        cursor: pointer;
+        transition: background 180ms ease, transform 180ms ease;
+        white-space: nowrap;
+        font-size: 0.85rem;
+      }
+
+      .install-btn:hover {
+        background: var(--accent);
+        transform: translateY(-1px);
+      }
+
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(8, 8, 8, 0.72);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 1000;
+      }
+
+      .modal-overlay.open {
+        display: flex;
+      }
+
+      .modal-card {
+        width: min(420px, 100%);
+        background: var(--bg);
+        border: 1px solid var(--text);
+        padding: 24px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal-card h3 {
+        margin: 0 0 8px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+
+      .modal-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .modal-error {
+        margin-top: 10px;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      .modal-input {
+        width: 100%;
+        margin-top: 14px;
+        padding: 12px 14px;
+        border: 1px solid var(--text);
+        background: white;
+        color: var(--text);
+        font: inherit;
+      }
+
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .modal-btn {
+        border: 1px solid var(--text);
+        background: var(--text);
+        color: white;
+        padding: 10px 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 0.8rem;
+      }
+
+      .modal-btn.secondary {
+        background: transparent;
+        color: var(--text);
+      }
+
+      .upcoming-card {
+        background: rgba(248, 246, 241, 0.92);
+        border-style: dashed;
+      }
+
+      .upcoming-btn {
+        background: #e8e2d8;
+        color: var(--muted);
+        cursor: not-allowed;
+        pointer-events: none;
+        border: 1px solid rgba(0,0,0,0.12);
+        font-size: 0.8rem;
+      }
+
+      .upcoming-btn:hover {
+        background: #e8e2d8;
+        transform: none;
+      }
+
+      .font-card .sample-inline {
+        font-family: "NewGen Soulsarchive", "Segoe UI", Arial, sans-serif;
+        font-size: 1.15rem;
+        color: var(--text);
+        overflow-wrap: anywhere;
+        flex-shrink: 0;
+      }
+
+      .font-card .sample-inline.bold-sample {
+        font-family: "NewGen Soulsarchive Bold", "Segoe UI", Arial, sans-serif;
+      }
+
+      @media (max-width: 860px) {
+        .hero {
+          min-height: auto;
+          gap: 18px;
+        }
+
+        .intro-card {
+          grid-template-columns: 1fr;
+          gap: 16px;
+          padding: 18px 20px;
+        }
+
+        .preview {
+          min-height: 110px;
+        }
+
+        .section {
+          margin-top: 24px;
+          gap: 18px;
+        }
+
+        .download-title {
+          font-size: 0.82rem;
+          letter-spacing: 0.2em;
+        }
+
+        .font-card {
+          display: grid;
+          grid-template-columns: 1fr;
+          align-items: start;
+          gap: 10px;
+          padding: 12px 13px;
+        }
+
+        .font-meta {
+          flex: 0 0 auto;
+        }
+
+        .sample-inline {
+          display: block;
+          width: 100%;
+        }
+
+        .install-btn {
+          width: 100%;
+          text-align: center;
+          padding: 10px 12px;
+          margin-top: 2px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page {
+          padding: 16px 10px 32px;
+        }
+
+        .hero {
+          gap: 12px;
+        }
+
+        .intro-card,
+        .font-card {
+          padding: 12px;
+        }
+
+        .intro-card {
+          gap: 10px;
+        }
+
+        .preview {
+          min-height: 88px;
+          padding: 10px 11px;
+        }
+
+        .hero-copy p,
+        .intro-card p,
+        .font-card p {
+          font-size: 0.9rem;
+          line-height: 1.55;
+        }
+
+        .tag {
+          font-size: 0.56rem;
+          padding: 5px 8px;
+          letter-spacing: 0.12em;
+          margin-bottom: 10px;
+        }
+
+        .hero-copy h1 {
+          font-size: 2rem;
+          line-height: 0.92;
+          margin-bottom: 8px;
+        }
+
+        .sample {
+          font-size: 0.94rem;
+          overflow-wrap: anywhere;
+        }
+
+        .font-card h3 {
+          margin-bottom: 4px;
+        }
+
+        .font-card .sample-inline {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="tag">Tipografía Soulsarchive · instalación directa</div>
+          <h1>NewGen <span>Soulsarchive</span></h1>
+          <p>
+            La tipografia propia del proyecto Soulsarchive, diseñada bajo el nucleo de curvaturas, lineas redondeadas y seres que parecen verse reflejados dentro de sus trazos.
+          </p>
+        </div>
+
+        <div class="intro-card">
+          <div class="intro-copy">
+            <h2>Presentación</h2>
+            <p>
+              Es una tipografia que solo contiene mayusculas, numeros y algunos signos en función de una planilla en Ingles, por lo tanto por ahora no contiene caracteres como la letra "ñ", pero pronto se veran contempladas.
+            </p>
+          </div>
+          <div class="preview">
+            <strong>Vista previa</strong>
+            <div class="sample">SOMETHING HUMAN / SOMETHING MACHINE</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="modal-overlay" id="installModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-card">
+          <h3 id="modalTitle">Instalación</h3>
+          <p>Introduce el codigo necesario para la instalación</p>
+          <input id="installCode" class="modal-input" type="password" placeholder="Código" autocomplete="off" spellcheck="false" />
+          <p class="modal-error" id="modalError" hidden></p>
+          <div class="modal-actions">
+            <button type="button" class="modal-btn secondary" id="cancelInstall">Cancelar</button>
+            <button type="button" class="modal-btn" id="confirmInstall">Continuar</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="download-group">
+          <h2 class="download-title">Versión tipografía con fondo sólido</h2>
+
+          <article class="font-card">
+            <div class="font-meta">
+              <h3>Formato TTF</h3>
+              <p>Versión Bold Regular con fondo sólido, lista para uso en diseño, web y edición.</p>
+            </div>
+            <div class="sample-inline bold-sample">NewGen Soulsarchive Bold</div>
+            <button class="install-btn" type="button" data-download="bold-ttf">Instalar</button>
+          </article>
+
+          <article class="font-card">
+            <div class="font-meta">
+              <h3>Formato OTF</h3>
+              <p>Versión Bold Regular con fondo sólido, refinada para aplicaciones profesionales y uso editorial.</p>
+            </div>
+            <div class="sample-inline bold-sample">NewGen Soulsarchive Bold</div>
+            <button class="install-btn" type="button" data-download="bold-otf">Instalar</button>
+          </article>
+        </div>
+
+        <div class="download-group">
+          <h2 class="download-title">Versión tipografía sin fondo</h2>
+
+          <article class="font-card">
+            <div class="font-meta">
+              <h3>Formato TTF</h3>
+              <p>Versión moderna, lista para uso cotidiano en diseño, web y edición.</p>
+            </div>
+            <div class="sample-inline">NewGen Soulsarchive</div>
+            <button class="install-btn" type="button" data-download="ttf">Instalar</button>
+          </article>
+
+          <article class="font-card">
+            <div class="font-meta">
+              <h3>Formato OTF</h3>
+              <p>Versión más refinada para aplicaciones profesionales y uso editorial.</p>
+            </div>
+            <div class="sample-inline">NewGen Soulsarchive</div>
+            <button class="install-btn" type="button" data-download="otf">Instalar</button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const installModal = document.getElementById('installModal');
+      const installCodeInput = document.getElementById('installCode');
+      const modalError = document.getElementById('modalError');
+      const cancelInstallButton = document.getElementById('cancelInstall');
+      const confirmInstallButton = document.getElementById('confirmInstall');
+      const REQUIRED_CODE = 'S0UL17264';
+      const REQUIRE_INSTALL_CODE = false;
+      let pendingDownload = null;
+
+      document.querySelectorAll('.install-btn').forEach((button) => {
+        if (button.classList.contains('upcoming-btn')) return;
+
+        button.addEventListener('click', (event) => {
+          event.preventDefault();
+          pendingDownload = button.getAttribute('data-download');
+
+          if (!REQUIRE_INSTALL_CODE) {
+            triggerDownload();
+            return;
+          }
+
+          installModal.classList.add('open');
+          installCodeInput.value = '';
+          modalError.hidden = true;
+          modalError.textContent = '';
+          installCodeInput.focus();
+        });
+      });
+
+      const closeModal = () => {
+        installModal.classList.remove('open');
+        installCodeInput.value = '';
+        modalError.hidden = true;
+        modalError.textContent = '';
+      };
+
+      const triggerDownload = () => {
+        if (!pendingDownload) return;
+
+        if (REQUIRE_INSTALL_CODE) {
+          const enteredCode = installCodeInput.value.trim();
+          if (enteredCode !== REQUIRED_CODE) {
+            modalError.textContent = 'Código incorrecto. Inténtalo de nuevo.';
+            modalError.hidden = false;
+            installCodeInput.value = '';
+            installCodeInput.focus();
+            return;
+          }
+        }
+
+        const downloads = {
+          ttf: 'NewgenSoulsarchive-Regular.ttf',
+          otf: 'NewgenSoulsarchive-Regular.otf',
+          'bold-ttf': 'NewgenSoulsarchiveBold-Regular.ttf',
+          'bold-otf': 'NewgenSoulsarchiveBold-Regular.otf'
+        };
+        const fileName = downloads[pendingDownload];
+
+        const link = document.createElement('a');
+        link.href = `./${fileName}`;
+        link.download = fileName;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        closeModal();
+      };
+
+      cancelInstallButton.addEventListener('click', closeModal);
+      confirmInstallButton.addEventListener('click', triggerDownload);
+
+      installModal.addEventListener('click', (event) => {
+        if (event.target === installModal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>

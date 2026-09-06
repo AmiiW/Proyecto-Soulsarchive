@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metas</title>
+    <link rel="stylesheet" href="styles.css">
+    <svg xmlns="http://www.w3.org/2000/svg">
+        
+        <defs>
+            <!-- Filtro de ruido -->
+            <filter id="noiseFilter">
+                <feTurbulence type="noise" baseFrequency="0.1" numOctaves="1" result="noise"/>
+                <feColorMatrix type="saturate" values="0"/>
+            </filter>
+            
+            <!-- Filtro de distorsión -->
+            <filter id="distortionFilter">
+                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" result="turbulence"/>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5"/> <!-- Reduce el valor de escala para menos distorsión -->
+            </filter>
+        </defs>
+    </svg>
+</head>
+<body>
+
+    <audio autoplay loop>
+        <source src="Grito.mp3" type="audio/mp3">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <div id="loader" class="loader">
+        <video id="loading-video" src="LoadinPequeno.mp4" muted autoplay loop></video>
+        </div>
+        <button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+
+    <div class="container">
+        <div class="image-container glitch" id="imageContainer">
+            <img src="Metas.jpg" alt="Imagen larga" id="scrollableImage">
+        </div>
+        <div class="controls">
+            <button id="scrollUp">▲</button>
+            <a href="Donaciones/index.html">
+                <button class="glitch">-> <b>Donar</b></button>
+            </a>
+            <button id="scrollDown">▼</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <div id="resolution-warning">
+        <div class="container">
+            <img src="Metas.jpg" alt="Descripción de la imagen" class="responsive-img">
+            <a href="Donaciones/index.html" class="btn">Donar</a>
+        </div>
+    </div>
+
+</body>
+</html>

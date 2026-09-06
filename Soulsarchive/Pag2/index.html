@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="- AqUi EsTaN las Alm4s dEl CaMp0 dE sEtAS - Cotiene el Almanatra y extiende la experiencia de adentrarse en el mundo de estos seres"/>
+    <link rel="stylesheet" href="Estilos1.css">
+    <title>SoulsArchive.com</title>
+    <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+    <div class="video-background">
+        <video muted autoplay loop playsinline id="bg-video">
+            <source src="Back.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+    </div>
+
+    <div id="loader" class="loader">
+        <img id="loading-gif" src="LoadinPequeno.gif" alt="Loading">
+    </div>
+
+    <div id="cartel" class="cartel">
+        <span id="close-btn" class="close-btn">&times;</span>
+        <a href="../Formulario/index.html" target="_blank">
+            <img src="Pub1.png" alt="Cartel" class="cartel-img">
+        </a>
+    </div>
+
+<div class="contenedor1">
+    <div class="presentacion">
+        <p class="glitch"><n>SoulsArchive.com</n></p>
+        <br>
+        <p class="glitch">- Menu -</p>
+        <br>
+        <div class="contenedor">
+            <p><button class="botonW" onclick="location.href='../Enlace1/Index.html'"><b>Internet cave</b></button></p>
+            <br>
+            <p><button class="botonW" onclick="location.href='../Enlace2/Index.html'"><b>SoulsArchive.com</b></button></p>
+            <br>
+            <p><button class="botonW" onclick="location.href='../Enlace3/Index.html'"><b>S̵͙̘͓̈́́͠o̸̘̙̠̐̚̚u̸̡̙͍͆̈́̾l̸̼̟̻̐̕̕d̴̟̼̼͋͊͑M̸̺̿̒͜e̸̫̘͔͐́͌d̸͇̟͓̈́͒͝i̸͉̝͖̓͌͊a̵̞͖͙͛͛͊Á̵͇̫̦͆͘r̸͍͇̓̈́͌͜c̸̟͖̺͆͆̚h̸͖̘̾͛̕i̵̟͙͇̾̐́v̸̢͕̞͑̐̈́e̵͔̙͇̒́̿</b></button></p>
+            <br>
+            <p><button class="botonW" onclick="location.href='../Enlace5/Index.html'"><b>Metas</b></button></p>
+            <br>
+            <p><button class="botonW" onclick="location.href='../Enlace4/Index.html'"><b>Proximamente...</b></button></p>
+            <br>
+            <p><button class="botonW" onclick="location.href='../Enlace6/Index.html'"><b>Callejon</b></button></p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p class="rainbow-text">© 2024 SoulsArchive.com Todos los derechos reservados.</p>
+</div>
+
+<div class="code-container">
+    <input type="text" id="codeInput" placeholder="Introduce el código">
+    <button id="submitButton">Enviar</button>
+</div>
+<div id="videoContainer" class="hidden">
+    <video id="introVideo" width="320" height="240" controls>
+        <source src="OpenDoor.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+</div>
+<div id="buttonContainer" class="hidden">
+    <button id="redirectButton">Panel</button>
+</div>
+<audio id="successSound" src="BigDoorSound.mp3"></audio>
+
+<button id="antiqueButton" onclick="redirectToPage()">Actualizaciones</button>
+
+<div class="clear-cache-button" onclick="clearCache()">C-</div>
+
+<script>
+    function clearCache() {
+        if (confirm('¿Estás seguro de que quieres limpiar el caché?')) {
+            localStorage.clear();
+            sessionStorage.clear();
+            caches.keys().then(function(names) {
+                for (let name of names)
+                    caches.delete(name);
+            });
+            alert('El caché ha sido limpiado.');
+            location.reload(true);
+        }
+    }
+</script>
+
+<div id="easterEgg">
+    <img src="EasterEgg0.png" id="easterEggImage" alt="Easter Egg">
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

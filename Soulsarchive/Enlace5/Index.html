@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metas</title>
+    <link rel="stylesheet" href="styles3.css">
+    <svg xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+            <!-- Filtro de ruido -->
+            <filter id="noiseFilter">
+                <feTurbulence type="noise" baseFrequency="0.1" numOctaves="1" result="noise" />
+                <feColorMatrix type="saturate" values="0" />
+            </filter>
+
+            <!-- Filtro de distorsión -->
+            <filter id="distortionFilter">
+                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="1" result="turbulence" />
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5" />
+                <!-- Reduce el valor de escala para menos distorsión -->
+            </filter>
+        </defs>
+    </svg>
+</head>
+
+<body>
+
+    <div id="loader" class="loader">
+        <img id="loading-gif" src="LoadinPequeno.gif" alt="Loading">
+    </div>
+
+    <button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+
+    <div class="container">
+        <div class="image-container" id="imageContainer">
+            <img src="Metas2.jpg" alt="Imagen larga" id="scrollableImage">
+        </div>
+        <div class="controls">
+            <button id="scrollUp">▲</button>
+            <a href="Donaciones/index.html">
+                <button>-> <b>Donar</b></button>
+            </a>
+            <button id="scrollDown">▼</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <div id="resolution-warning">
+
+        <div class="retro-container">
+            <div class="retro-image-container">
+                <img src="Metas2.jpg" alt="Imagen Retro">
+            </div>
+            <div class="retro-button-container">
+                <button onclick="window.location.href='Donaciones/index.html';">Donar</button>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+
+</html>

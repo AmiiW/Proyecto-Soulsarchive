@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA CREACIÓN</title>
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loader" class="loader">
+        <video id="loading-video" src="LoadingJuego.mp4" muted autoplay loop></video>
+        </div>
+        <button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+
+    <div class="money-container glitch">
+        <img src="Melida.png" alt="Money Icon" class="money-icon">
+        <span id="money-count">0</span>
+    </div>
+    <div class="game-container">
+        <div class="enemy-info">
+            <h2>La creación<nav></nav></h2>
+            <img id="enemy-image" src="Bicho.png" alt="Imagen del enemigo" class="enemy-image glitch">
+            <div id="text-container" class="text-container"></div>
+            <br><br>
+            <p id="enemy-health">Vida: 100%</p>
+            <p id="">Daño: 2.0</p>
+        </div>
+        <div class="battle-container glitch">
+            <img id="hero-image" src="vida_100.png" alt="Vida del Protagonista">
+            <div id="circle-container" class="circle-container"></div>
+        </div>
+    </div>
+
+    <audio id="sound-red" src="Curacion.mp3"></audio>
+    <audio id="sound-violet-pink" src="ElixirDeSangijuela.mp3"></audio>
+    <audio id="sound-shake" src="Shakeefect.mp3"></audio>
+
+    <script src="script.js"></script>
+
+    <style>
+        /* Estilos del botón de música */
+        #musicButton {
+            position: fixed;
+            top: 15px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: #f28b82; /* Rojo pastel suave */
+            border: 2px solid black;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+            z-index: 9999; /* Asegura que el botón esté por encima de todos los elementos */
+        }
+
+        #musicButton img {
+            width: 70%;
+            height: 70%;
+        }
+
+        #musicButton.active {
+            background-color: #ccff90; /* Verde claro pastel */
+        }
+    </style>
+
+    <div id="musicButton" onclick="toggleMusic()">
+        <img id="buttonIcon" src="Off.png" alt="Music Control">
+    </div>
+
+    <!-- Elemento de audio para la música -->
+    <audio id="backgroundMusic" src="Sound.mp3" loop></audio>
+
+    <script>
+        function toggleMusic() {
+            const musicButton = document.getElementById('musicButton');
+            const buttonIcon = document.getElementById('buttonIcon');
+            const music = document.getElementById('backgroundMusic');
+
+            if (music.paused) {
+                music.play();
+                musicButton.classList.add('active');
+                buttonIcon.src = 'On.png'; // Imagen cuando la música está activada
+            } else {
+                music.pause();
+                musicButton.classList.remove('active');
+                buttonIcon.src = 'Off.png'; // Imagen cuando la música está desactivada
+            }
+        }
+    </script>
+    
+</body>
+</html>

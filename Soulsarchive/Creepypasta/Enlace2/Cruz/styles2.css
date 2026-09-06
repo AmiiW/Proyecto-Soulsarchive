@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: black; /* Color de fondo negro */
+    background-image: url('Debajo.jpg');
+    background-repeat: no-repeat;
+    background-size: contain; /* Ajusta la imagen para que se ajuste al ancho */
+    background-position: center center; /* Centra la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+button {
+    position: absolute;
+    top: 20px; /* Ajusta según sea necesario */
+    right: 20px; /* Ajusta según sea necesario */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

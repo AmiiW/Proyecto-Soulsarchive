@@ -1,0 +1,91 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: url('Fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imagen-flotante {
+    width: 200px; /* Ajusta el tamaño según necesites */
+    animation: levitar 4s infinite ease-in-out;
+    cursor: pointer;
+    position: absolute; /* Cambiado para permitir el movimiento */
+    user-select: none; /* Evitar selección del texto/imágenes */
+    will-change: transform; /* Mejora el rendimiento en la animación */
+}
+
+
+#flecha {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#flecha img {
+    width: 100px; /* Ajusta el tamaño según necesites */
+}
+
+
+#play-sound {
+    position: absolute;
+    top: 20px; /* Ajusta según sea necesario */
+    right: 20px; /* Ajusta según sea necesario */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Boton para ir atras */
+
+#backButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Fin de boton para ir atras */
+
+@keyframes levitar {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes caer {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}

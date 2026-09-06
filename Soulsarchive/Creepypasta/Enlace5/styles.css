@@ -1,0 +1,262 @@
+body {
+    margin: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.image-container {
+    max-width: 50vw; /* La imagen no supera la mitad de la pantalla en el eje vertical */
+    overflow-y: hidden; /* Oculta el scroll vertical */
+    height: 100%; /* Ajuste para que la altura del contenedor sea del 100% de la pantalla */
+    margin-left: 400px; /* Ajusta el margen izquierdo según necesites */
+    position: relative;
+    filter: url(#distortionFilter); /* Aplica el filtro de distorsión aquí */
+}
+
+.image-container img {
+    display: block;
+    width: 100%; /* Ajusta el ancho de la imagen para que encaje en el contenedor */
+    height: auto; /* Aumenta la altura de la imagen para hacerla más grande */
+    animation: saturationPulse 3s infinite, brightnessPulse 3s infinite, noisePulse 10s infinite, blurPulse 2s infinite, distortionPulse 4s infinite; /* Añade múltiples animaciones */
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10vw; /* Ocupa la otra mitad de la pantalla */
+}
+
+.controls button {
+    width: 80px;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    margin: 190px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: gray;
+}
+
+
+@keyframes saturationPulse {
+    0%, 100% {
+        filter: saturate(1) brightness(1); /* Saturación y brillo normales */
+    }
+    50% {
+        filter: saturate(2) brightness(1.5); /* Doble saturación y más brillo en el punto medio */
+    }
+}
+
+@keyframes brightnessPulse {
+    0%, 100% {
+        filter: brightness(1); /* Brillo normal */
+    }
+    50% {
+        filter: brightness(1.5); /* Brillo aumentado en el punto medio */
+    }
+}
+
+@keyframes noisePulse {
+    0%, 100% {
+        filter: url(#noiseFilter); /* Efecto de ruido aplicado */
+    }
+    50% {
+        filter: url(#noiseFilter) grayscale(0.1); /* Ruido mínimo y poco efecto de escala de grises */
+    }
+}
+
+@keyframes blurPulse {
+    0%, 100% {
+        filter: blur(0px); /* Sin desenfoque */
+    }
+    50% {
+        filter: blur(100px); /* Desenfoque más notorio en el punto medio */
+    }
+}
+
+@keyframes distortionPulse {
+    0% {
+        filter: url(#distortionFilter) contrast(1); /* Sin distorsión ni contraste aumentado */
+    }
+    20% {
+        filter: url(#distortionFilter) contrast(1); /* Sin distorsión ni contraste aumentado */
+    }
+    40% {
+        filter: url(#distortionFilter) contrast(1.05); /* Ligeramente más contraste */
+    }
+    60% {
+        filter: url(#distortionFilter) contrast(1.1); /* Ligera distorsión y contraste */
+    }
+    80% {
+        filter: url(#distortionFilter) contrast(1.05); /* Ligeramente más contraste */
+    }
+    100% {
+        filter: url(#distortionFilter) contrast(1); /* Sin distorsión ni contraste aumentado */
+    }
+}
+
+/* Filtros SVG */
+svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+
+/* Boton para ir atras */
+
+#backButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Fin de boton para ir atras */
+
+/* Pagina de carga */
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s;
+    z-index: 10000;
+}
+
+#loader.fade-out {
+    opacity: 0;
+}
+
+#loader video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#content {
+    display: none;
+}
+
+#content.show {
+    display: block;
+}
+
+/* Fin de pagina de carga */
+
+#resolution-warning {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    font-family: 'UnifrakturCook';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    position:absolute;
+    display: inline-block;
+    margin-left: 78%;
+    margin-top: 50%;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #f00, -1px -1px #0f0, 3px 3px #00f;
+    animation: glitch-animation 1s infinite;
+}
+
+@keyframes glitch-animation {
+    0% {
+        transform: translate(0);
+        clip: rect(12px, 9999px, 55px, 0);
+    }
+    10% {
+        transform: translate(-5px, 5px);
+    }
+    20% {
+        transform: translate(5px, -5px);
+    }
+    30% {
+        transform: translate(-5px, 5px);
+        clip: rect(85px, 9999px, 140px, 0);
+    }
+    40% {
+        transform: translate(5px, -5px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    60% {
+        transform: translate(-5px, 5px);
+    }
+    70% {
+        transform: translate(5px, -5px);
+        clip: rect(45px, 9999px, 90px, 0);
+    }
+    80% {
+        transform: translate(-5px, 5px);
+    }
+    90% {
+        transform: translate(5px, -5px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}

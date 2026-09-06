@@ -1,0 +1,113 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #a5d2fc;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Boton para ir atras */
+
+#backButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Fin de boton para ir atras */
+
+/* Pagina de carga */
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s;
+    z-index: 10000;
+}
+
+#loader.fade-out {
+    opacity: 0;
+}
+
+#loader video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#content {
+    display: none;
+}
+
+#content.show {
+    display: block;
+}
+
+/* Fin de pagina de carga */
+
+.donation-container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 20px;
+    box-shadow: 5px 5px 0 #000;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #0000ff;
+    text-shadow: 1px 1px #fff;
+}
+
+.description {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.donation-info {
+    text-align: left;
+}
+
+.donation-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.donation-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border: 2px solid #000;
+}
+
+.donation-item p {
+    margin: 0;
+    font-size: 1em;
+}
+
+@media (max-width: 600px) {
+    .donation-item img {
+        width: 40px;
+        height: 40px;
+    }
+}

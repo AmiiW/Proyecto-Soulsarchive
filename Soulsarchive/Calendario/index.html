@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: url('fondo.png') no-repeat center center fixed;
+            background-size: cover;
+            color: blue;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            position: relative;
+        }
+        .gif-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .gif-container img {
+            width: 120px;
+            height: auto;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border: 2px solid blue;
+        }
+        input[type="date"] {
+            font-size: 16px;
+            padding: 5px;
+        }
+        #message-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid blue;
+            background: white;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="gif-container">
+        <img src="Reloj.gif" alt="GIF animado">
+    </div>
+    <div class="container">
+        <a href="https://soulsarchive.com">Salir</a>
+        <h1>*************************</h1>
+        <input type="date" id="calendar">
+        <div id="message-container"></div>
+        <br><br>
+        <br> 2000-02-01 <br> 2000-03-02 <br> 2000-04-03
+    </div>
+    <script>
+        const messages = {
+            "2000-02-01": "...",
+            "2001-09-11": "Torres",
+            "2000-03-02": "¿Es la red un lugar mejor para vivir?",
+            "2025-03-30": "https://drive.google.com/drive/folders/1jAWjxwtWYvb2qIe-A60TYnw8KqhnC-6l?usp=drive_link",
+            "2000-04-03": "O es la red el infierno de donde salen los demonios...",
+            "2024-10-05": "Fue muy divertido ir a cafelino, sin duda, siempre significaron para la web y para todos, los gatitos unos seres muy adorables",
+            "2024-11-06": "El ultimo y el mas reciente, buceo siempre tendra una parte de mi corazon.",
+            "2024-05-31": "La introducción fue divertida, yo era otra persona totalmente diferente a la que soy ahora, realmente increible de ver, de haber capturado.",
+            "2024-06-08": "La nostalgia... Es aquello de lo que beber hasta embriagarse, o alejar despacio hasta hacerlo desaparecer... tratar como vicio o como droga necesaria para sobrellevar los akuma, entonces no arrepentise",
+            "2024-12-17": "Es el mundo web un lugar complicado de asimilar como lo que es, pretende ser un oscuro, largo y profundo agujero el cual usar como cueva y protegerse de la realidad",
+            "2024-08-22": "Video subido a la plataforma. Ami (administrador) realizo cambios en la pagina web. Usuario comento y borro lo siguiente - ********* -",
+            "2020-01-01": "Usuario {Sain} bloqueado por conductas inapropiadas en chat publico.",
+            "2024-06-28": "Esta es la guia totalmente precisa de la pagina Soulsarchive.com: 4) al introducir el codigo de 7 digitos en la seccion de soulmedia, osea la segunda opcion en el menú, se revelaran 6 imagenes de las cuales una dira la serie de numeros especificos que revelaran el panel de soulsarchive.com (este codigo debera ir en la seccion de la pagina principal)",
+            "9999-01-01": "No hay duda de que Raito está perdido y otros se hacen pasar por él. Nadie se da cuenta de que todos ellos son impostores y de que ese cuerpo quizás se halle desangrando en algún rincón de por aquí",
+            "2011-04-02": "Nacimiento de NyanCat",
+            "2003-06-07": "01000010 01110101 01110011 01100011 01100001 00100000 01101100 01101111 01110011 00100000 01101110 01110101 01101101 01100101 01110010 01101111 01110011 00100000 01100110 01100001 01101100 01110100 01100001 01101110 01110100 01100101 01110011 00100000 01110000 01101111 01110010 00100000 01101100 01100001 00100000 01110000 01100001 01100111 01101001 01101110 01100001 00100000 01100100 01100101 01100100 01101001 01100011 01100001 01100100 01100001 00100000 01100001 01101100 00100000 01100001 01101100 01101101 01100001 01101110 01100001 01110100 01110010 01100001 00101100 00100000 01110100 01100001 01101101 01100010 01101001 11101001 01101110 00100000 01101000 01100001 01101100 01101100 01100001 01110010 01100001 01110011 00100000 01100001 01101100 01100111 01110101 01101110 01101111 00100000 01100101 01101110 00100000 01110011 01101111 01110101 01101100 01110011 01100001 01110010 01100011 01101000 01101001 01110110 01100101 00100000 01110110 01100101 01110010 01110011 01101001 11110011 01101110 00100000 01100100 01101001 01110011 01110100 01101111 01110010 01100011 01101001 01101111 01101110 01100001 01100100 01100001 "
+        };
+
+        document.getElementById("calendar").addEventListener("change", function() {
+            const selectedDate = this.value;
+            const messageContainer = document.getElementById("message-container");
+            
+            if (messages[selectedDate]) {
+                messageContainer.textContent = messages[selectedDate];
+                messageContainer.style.display = "block";
+                
+                if (selectedDate === "9999-01-01") {
+                    setTimeout(() => {
+                        window.open("34928440209560.png", "_blank");
+                    }, 1000);
+                }if (selectedDate === "2000-04-03") {
+                    setTimeout(() => {
+                        window.open("340434094.png", "_blank");
+                    }, 1000);
+                }if (selectedDate === "2001-09-11") {
+                    setTimeout(() => {
+                        window.open("Torres.jpg", "_blank");
+                    }, 1000);
+                }
+            } else {
+                messageContainer.textContent = "";
+                messageContainer.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

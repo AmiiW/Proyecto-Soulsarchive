@@ -1,0 +1,163 @@
+/* Tipografía retro */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    padding: 40px 20px 20px 20px;
+    background-color: rgb(110, 44, 110);
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.collage {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.image-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.vertical-image img, .image-item img {
+    width: 60%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.horizontal-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.description {
+    margin-top: 5px;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.additional-text {
+    line-height: 1.5;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.additional-text h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.additional-text p {
+    font-size: 1.2em;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .collage {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .horizontal-images {
+        flex-direction: row;
+    }
+
+    .horizontal-images .image-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .horizontal-images {
+        flex-direction: column;
+    }
+
+    .horizontal-images .image-item {
+        width: 94%;
+    }
+
+    .additional-text h1 {
+        font-size: 1.5em;
+    }
+
+    .additional-text p {
+        font-size: 1em;
+    }
+
+    .container {
+        margin: 15px auto;
+    }
+
+    body {
+        padding: 15px 10px;
+    }
+}
+
+/* Página de carga */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease;
+    z-index: 10000;
+}
+
+#loader.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Evitar que se pueda interactuar con el loader cuando está desapareciendo */
+}
+
+#loader img {
+    max-width: 100%; /* Ajusta el tamaño del gif según tu preferencia */
+    max-height: 100%;
+}
+
+/* Ocultar contenido por defecto hasta que cargue la página */
+#content {
+    display: none;
+}
+
+/* Mostrar contenido cuando la carga finalice */
+#content.show {
+    display: block;
+}
+
+/* Fin pantalla de carga */
+
+/* Boton para ir atras */
+
+#backButton {
+    color: #222;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* Fin de boton para ir atras */

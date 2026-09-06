@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Tower</title>
+    <link rel="stylesheet" href="resultado.css">
+    <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <!-- Contenedor para las imágenes inicial y del jefe final -->
+        <div id="imagenInicial" class="imagen-fade">
+            <img src="Personaje d espaldas.png" alt="Imagen Inicial" class="central-img">
+        </div>
+        <div id="imagenJefe" class="imagen-fade hidden">
+            
+        </div>
+
+        <!-- Información del arma y daño -->
+        <div class="info-arma">
+            <img id="armaImagen" src="" alt="Arma Actual" class="arma-imagen">
+            <span id="armaDanio" class="arma-danio"></span>
+        </div>
+
+        <!-- Sección de lucha contra el jefe -->
+        <div class="lucha hidden">
+            <h1>Simbolo vagante</h1>
+            <div id="jefe" class="jefe">
+                <img src="Personaje d frente1.png" alt="Jefe Final" class="imagen-jefe" id="imagenBossLucha">
+                <p><span id="saludJefe">200</span></p>
+            </div>
+            <div id="cuadradosContainer" class="cuadrados-container"></div>
+            <br>
+            <p id="resultadoAtaque"></p>
+        </div>
+    </div>
+
+    <!-- Sonidos -->
+    <audio id="sonidoInicial" src="Fogata.mp3"></audio>
+    <audio id="sonidoLucha" src="Pelea.mp3"></audio>
+    <audio id="sonidoAtaqueJefe" src="Disparo.mp3"></audio>
+
+    <script src="resultado.js"></script>
+</body>
+</html>

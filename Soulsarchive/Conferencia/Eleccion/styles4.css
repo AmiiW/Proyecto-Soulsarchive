@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Courier New", Courier, monospace; /* Fuente clásica retro */
+    background: url('../Fondo44.png') no-repeat center center fixed; /* Fondo centrado y fijo */
+    background-size: cover; /* Adapta la imagen de fondo a todas las resoluciones */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura total del viewport */
+    color: black;
+  }
+  
+  .container {
+    text-align: center;
+    background-color: #f8f8f8; /* Fondo retro gris claro */
+    border: 2px solid #000; /* Borde negro grueso */
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Sombra clásica */
+    max-width: 600px; /* Ancho máximo para centrar contenido */
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 0 #000; /* Efecto de sombra para texto */
+  }
+  
+  .seat-container {
+    margin: 20px 0;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .seat {
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .seat img {
+    width: 80px;
+    height: auto;
+    border: 1px solid #000; /* Borde negro por defecto */
+    padding: 5px;
+    transition: border-color 0.3s ease; /* Transición suave para el borde */
+  }
+  
+  .seat.selected img {
+    border: 2px solid red; /* Borde rojo para el asiento seleccionado */
+  }
+  
+  .seat p {
+    margin-top: 5px;
+    font-size: 1rem;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #c0c0c0; /* Botón retro */
+    border: 2px outset #fff; /* Estilo clásico */
+    cursor: pointer;
+    display: none; /* Inicialmente oculto */
+  }
+  
+  button:hover {
+    background-color: #a9a9a9; /* Efecto hover */
+  }
+  
+  button:active {
+    border: 2px inset #fff; /* Estilo de clic retro */
+  }
+  
+  /* Boton para ir atras */
+
+#backButton {
+    z-index: 999;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Fin de boton para ir atras */
+
+.footer-text {
+    position: fixed;
+    bottom: 60px; /* Distancia del borde inferior */
+    width: 100%; /* Asegura que esté centrado horizontalmente */
+    text-align: center; /* Centra el texto en el contenedor */
+    font-family: 'Times New Roman', Times, serif; /* Fuente solicitada */
+    font-size: 16px; /* Tamaño de letra ajustado */
+    color: #000; /* Cambia este color según tu diseño */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente opcional */
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+  }
+  

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Tower</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+    <button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+
+    <button id="retroButton">...</button>
+
+    <div id="loader" class="loader">
+        <img id="loading-gif" src="LoadinPequeno.gif" alt="Loading">
+    </div>
+
+    <div class="container">
+        <img src="InternetTower.png" alt="Título del Juego" class="titulo">
+        <br><br><br><br><br>
+        <img src="Entrada2.png" alt="Cargando..." class="imagen-principal">
+        <div class="botones">
+            <button id="play">Play</button>
+            <button id="drops">Drops</button>
+        </div>
+    </div>
+
+    <!-- Incluir los sonidos -->
+    <audio id="backgroundSound1" src="SonidoExterior.mp3" loop></audio>
+    <audio id="backgroundSound2" src="SonidoInterior.mp3" loop></audio>
+    <audio id="sonidoPuerta" src="Puerta abriendose.mp3"></audio>
+    <!-- Nuevos sonidos añadidos -->
+    <audio id="sonidoEleccion" src="Escalera.mp3"></audio>
+    <audio id="sonidoHabitacion" src="PuertasInternas.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

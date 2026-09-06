@@ -1,0 +1,66 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #a5d2fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#form-container {
+    background-color: #fefefe;
+    border: 3px solid #000;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 5px 5px #888888;
+}
+
+.form-title {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-text {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: #e0e0e0;
+}
+
+.form-textarea {
+    height: auto;
+    min-height: 100px;
+    resize: vertical;
+    overflow: hidden;
+    white-space: pre-wrap;
+}
+
+#download-btn {
+    background-color: #d9534f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#download-btn:hover {
+    background-color: #c9302c;
+}

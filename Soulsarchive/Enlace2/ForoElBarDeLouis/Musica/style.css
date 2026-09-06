@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0e0e0e;
+  color: #fff;
+  font-family: monospace;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTENEDOR GLOBAL */
+.album-wrapper {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* CARD PRINCIPAL */
+.album-card {
+  display: flex;
+  gap: 20px;
+  background: #111;
+  border: 1px solid #333;
+  padding: 20px;
+}
+
+/* PORTADA */
+.album-cover img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  image-rendering: pixelated;
+  border: 1px solid #444;
+}
+
+/* TRACKS */
+.album-tracks {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.track-title {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* AUDIO */
+audio {
+  width: 100%;
+  height: 28px;
+  filter: grayscale(1) contrast(1.2);
+}
+
+/* TEXTO */
+.album-text {
+  margin-top: 18px;
+  padding: 14px;
+  background: #111;
+  border: 1px solid #333;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* BOTÓN VOLVER */
+.back-container {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.back-container button {
+  background: #000;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 6px 14px;
+  font-family: monospace;
+  cursor: pointer;
+  transition: all 0.15s steps(2);
+}
+
+.back-container button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.back-container button:active {
+  transform: translateX(2px);
+}
+
+/* RESPONSIVE (MISMO DISEÑO, MÁS CHICO) */
+@media (max-width: 600px) {
+  .album-card {
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .album-cover img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .track-title {
+    font-size: 12px;
+  }
+
+  audio {
+    height: 24px;
+  }
+}

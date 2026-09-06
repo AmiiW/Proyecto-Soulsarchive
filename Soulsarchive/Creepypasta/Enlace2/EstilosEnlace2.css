@@ -1,0 +1,631 @@
+/* cambia el fondo */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 200vh; /* Esto asegura que la página tenga suficiente altura para hacer scroll */
+    background: url('Back1.gif') no-repeat center center fixed; /* Primer fondo GIF/PNG por defecto */
+    background-size: cover;
+}
+
+#overlayImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 490vh; /* Asegura que la imagen PNG cubra toda la página en altura */
+    background: url('Fondo.png') no-repeat center top;
+    background-size: auto 100%;
+    pointer-events: none; /* Hace que el overlay no interfiera con los eventos de clic */
+}
+#changeBackgroundButton {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    z-index: 2; /* Asegura que el botón esté por encima del overlay */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* cambia el fondo */
+
+/* Boton para ir atras */
+
+#backButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* Fin de boton para ir atras */
+
+
+/* Efecto Glitch y VHS Overlay */
+#vhs-glitch-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    pointer-events: none;
+    background: transparent;
+    mix-blend-mode: difference;
+    animation: glitch-effect 3s infinite;
+    filter: contrast(1.5) saturate(2) hue-rotate(15deg) brightness(1.2);
+    opacity: 0.3;
+}
+
+/* Pantallazos negros */
+#black-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 10001;
+    opacity: 0;
+    pointer-events: none;
+    animation: flash-effect 10s infinite;
+}
+
+@keyframes flash-effect {
+    0%, 95% { opacity: 0; }
+    96%, 97% { opacity: 1; }
+    98%, 100% { opacity: 0; }
+}
+
+/* Imágenes aleatorias a pantalla completa */
+#random-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10002;
+    pointer-events: none;
+    opacity: 0;
+    background-color: transparent;
+}
+
+#random-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #f00, -1px -1px #0f0, 3px 3px #00f;
+    animation: glitch-animation 1.5s infinite;
+}
+
+@keyframes glitch-animation {
+    0% {
+        transform: translate(0);
+        clip: rect(12px, 9999px, 55px, 0);
+    }
+    10% {
+        transform: translate(-5px, 5px);
+    }
+    20% {
+        transform: translate(5px, -5px);
+    }
+    30% {
+        transform: translate(-5px, 5px);
+        clip: rect(85px, 9999px, 140px, 0);
+    }
+    40% {
+        transform: translate(5px, -5px);
+    }
+    50% {
+        transform: translate(0, -200px);
+    }
+    60% {
+        transform: translate(-500px, 5px);
+    }
+    70% {
+        transform: translate(5px, -5px);
+        clip: rect(45px, 9999px, 90px, 0);
+    }
+    80% {
+        transform: translate(-5px, 5px);
+    }
+    90% {
+        transform: translate(5px, -5px);
+    }
+    100% {
+        transform: translate(100px, 0);
+    }
+}
+
+/* Pagina de carga */
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s;
+    z-index: 10000;
+}
+
+#loader.fade-out {
+    opacity: 0;
+}
+
+#loader video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#content {
+    display: none;
+}
+
+#content.show {
+    display: block;
+}
+
+/* Fin de pagina de carga */
+
+/* sistema de codigo e imagenes */
+
+.imageGridContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-right: 5px;
+    margin-top: 350px; /* Ajusta según sea necesario */
+    padding: 0 5vw; /* Ajusta el padding lateral según sea necesario */
+    transform: scale(0.48); /* Ajusta el tamaño del contenedor */
+}
+#imageGrid {
+    position: relative;
+    z-index: 4; /* Asegura que las imágenes estén por encima del PNG */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vw; /* Ajusta la separación entre las imágenes */
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; /* Ajusta según sea necesario */
+    margin-bottom: 2vh; /* Ajusta la separación vertical entre filas */
+}
+.column {
+    font-size: 25px;
+    flex: 1;
+    margin: 0 1vw; /* Ajusta la separación entre columnas */
+    text-align: center;
+    position: relative;
+}
+.column img {
+    width: 100%;
+    height: auto;
+}
+.mediaContainer {
+    position: relative;
+    width: 100%;
+}
+.mediaContainer img {
+    width: 100%;
+    height: auto;
+}
+.mediaContainer video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 1; /* Ajusta la opacidad inicial */
+    transition: opacity 0.5s ease; /* Agrega una transición suave */
+}
+.mediaContainer video.hidden {
+    opacity: 0; /* Opacidad reducida para "ocultar" el video */
+}
+#codeInputSection {
+    margin-top: -710px;
+    text-align: center;
+    z-index: 4; /* Asegura que la sección de entrada de código esté por encima del PNG */
+    position: relative;
+}
+#codeInput {
+    padding: 5px;
+    font-size: 14px;
+}
+#submitButton {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.hiddenImage {
+    opacity: 0.5; /* Reduce la opacidad para indicar que están cubiertas */
+    transition: opacity 0.5s ease; /* Agrega una transición suave */
+}
+
+.visibleImage {
+    opacity: 1; /* Opacidad completa cuando se revela la imagen */
+    transition: opacity 0.5s ease; /* Agrega una transición suave */
+}
+#feedbackMessage {
+    margin-top: 10px;
+    font-size: 14px;
+    color: red; /* Color para el mensaje de error */
+}
+#feedbackMessage.success {
+    color: green; /* Color para el mensaje de éxito */
+}
+
+/* FIN Sistema de codigo e imagenes*/
+
+
+/* TITULO */
+/* Estilo para el contenedor del título */
+#titleContainer {
+    position: absolute; /* Permite posicionamiento libre dentro del contenedor padre */
+    top: 100%; /* Ajusta esta propiedad para mover el título verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta el centro horizontalmente */
+    z-index: 10; /* Asegura que el título esté por encima de las imágenes */
+    text-align: center;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+}
+
+/* Estilo para el título de la galería */
+#galleryTitle {
+    font-family: 'UnifrakturCook', serif; /* Fuente gótica de Google Fonts */
+    font-size: 40px; /* Tamaño de fuente */
+    color: #000; /* Color del texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    line-height: 0.2; /* Ajusta la altura de la línea para reducir el espacio entre renglones */
+}
+
+/* Cuadrado invisible */
+
+.clickable-square {
+    position: absolute;
+    top: 65%; /* Ajusta según la posición deseada */
+    left: 47.5%; /* Ajusta según la posición deseada */
+    width: 100px; /* Ajusta el tamaño deseado */
+    height: 100px; /* Ajusta el tamaño deseado */
+    background-color: transparent; /* Hace el cuadrado invisible */
+    cursor: pointer; /* Cambia el cursor cuando se pasa por encima */
+    z-index: 999; /* Asegura que el cuadrado esté sobre todas las imágenes */
+}
+
+/* Fin cuadrado invisible */
+
+
+/* Publicidad Flotante */
+
+
+.image-container {
+    position: absolute; /* Permite posicionar la imagen en cualquier lugar de la página */
+    transform: translateY(-50%); /* Centra verticalmente si es necesario */
+}
+
+.image-container.left {
+    top: 130%; /* Ajusta según tus necesidades */
+    left: 3%; /* Posiciona la imagen en el costado izquierdo */
+}
+
+.image-container.right {
+    top: 260%; /* Ajusta según tus necesidades */
+    right: 6.5%; /* Posiciona la imagen en el costado derecho */
+}
+
+.intermittent-image {
+    display: block; /* Inicialmente visible */
+    z-index: 9999; /* Asegura que esté por encima de otras imágenes */
+}
+
+.intermittent-image.left {
+    width: 450px; /* Ajusta el ancho de la imagen izquierda */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.intermittent-image.right {
+    width: 360px; /* Ajusta el ancho de la imagen derecha */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.close-button {
+    position: absolute;
+    padding: 3px;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    z-index: 10000; /* Asegura que esté por encima de la imagen */
+}
+
+/* Fin Publicidad Flotante */
+
+/* Inicio Reproductor de musica*/
+
+.music-player {
+    font-family: Arial, sans-serif;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 200px;
+    background: rgb(189, 216, 255);
+    padding: 18px;
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.685);
+    border-radius: 10px;
+    text-align: center;
+    z-index: 9999; /* Asegura que el reproductor esté por encima de otros elementos */
+}
+
+.music-player h2 {
+    margin: 0;
+}
+
+.music-player hr {
+    margin: 10px 0;
+}
+
+.music-player p {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.music-player img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Fin reproductor de musica */
+
+/* Cartel de texto */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+.fixed-text-container {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    overflow: hidden; /* Esconde el texto que sale del contenedor */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.fixed-text {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px; /* Puedes ajustar el tamaño de la fuente aquí */
+    font-weight: bold;
+    color: #ff000098; /* Cambia el color aquí */
+    text-shadow: 2px 2px 5px black;
+    white-space: nowrap;
+    animation: scrollText 15s linear infinite; /* Puedes ajustar la duración de la animación aquí */
+}
+
+.fixed-text a.clickable-word {
+    color: #00ff0094; /* Color del enlace */
+    text-decoration: none; /* Quita el subrayado */
+}
+
+.fixed-text a.clickable-word:hover {
+    text-decoration: underline; /* Subraya al pasar el cursor */
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(290%);
+    }
+}
+
+/* Fin cartel de texto */
+
+/* Aparicion imagen  */
+
+.inactive-image {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Fuera de la pantalla a la derecha */
+    width: 64%; /* Ocupa el 62% de la pantalla para moverse 38% hacia la izquierda */
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    transition: right 2s;
+    z-index: 99999;
+}
+
+.inactive-image.show {
+    right: 0; /* Mueve la imagen a la posición deseada */
+}
+
+.inactive-image.hide {
+    right: -100%; /* Ocultar imagen fuera de la pantalla a la derecha */
+}
+
+.inactive-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen ocupe todo el div sin distorsionarse */
+}
+
+/* Fin aparicion imagen */
+
+/* Inicio publicaciones */
+
+.contenedor-publicaciones {
+    width: 30%;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    position: absolute; /* Cambia de relative a absolute */
+    z-index: 1000; /* Un valor alto para asegurar que esté por encima de otros elementos */
+    top: 2700px; /* Ajusta esta propiedad para mover el contenedor hacia abajo */
+    left: 49.8%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta la posición horizontal al centro */
+}
+
+.imagen-cabecera {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 320px; /* Ajusta el tamaño según sea necesario */
+}
+
+.publicacion {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px 10px 10px 60px; /* Ajusta los valores de padding */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 10px; /* Ajusta la posición para que no quede recortado */
+    left: 10px;
+}
+
+.foto-perfil {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.nombre-usuario {
+    font-weight: bold;
+    font-family: '4chan', sans-serif; /* Cambia la fuente aquí */
+}
+
+.texto-publicacion {
+    font-family: '4chan', sans-serif; /* Cambia la fuente aquí */
+    word-wrap: break-word; /* Asegura que el texto se ajuste y baje a un segundo renglón */
+    margin-top: 30px; /* Añade margen superior para evitar que el texto se solape con la imagen de perfil */
+}
+
+.fecha-publicacion {
+    display: block;
+    font-size: 0.8em;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 10px;
+}
+
+/* Fin publicaciones*/
+
+
+#gameContainer {
+    margin-top: 2800px;
+    margin-left: 150px;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px solid #000;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#playButton {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+}
+
+#gameCanvas {
+    display: none;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+}
+
+#score {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+
+
+
+#resolution-warning {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    font-family: 'UnifrakturCook';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    text-align: center;
+}

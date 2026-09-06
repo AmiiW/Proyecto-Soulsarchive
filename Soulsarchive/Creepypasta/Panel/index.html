@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel</title>
+    <link rel="icon" href="Archivador.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loader" class="loader">
+        <video id="loading-video" src="LoadinPequeno.mp4" muted autoplay loop></video>
+    </div>
+
+    <div class="code-container">
+        <input type="text" id="code-input" placeholder="Introduce el código">
+        <button id="submit-button">Enviar</button>
+        <button id="cache-button" class="cache-disabled">Memoria Caché</button>
+    </div>
+    <div class="images-container" id="images-container">
+        <div class="image-row">
+            <div class="image-cell" id="image-1" draggable="true"></div>
+            <div class="image-cell" id="image-2" draggable="true"></div>
+            <div class="image-cell" id="image-3" draggable="true"></div>
+        </div>
+        <div class="image-row">
+            <div class="image-cell" id="image-4" draggable="true"></div>
+            <div class="image-cell" id="image-5" draggable="true"></div>
+            <div class="image-cell" id="image-6" draggable="true"></div>
+        </div>
+        <div class="image-row">
+            <div class="image-cell" id="image-7" draggable="true"></div>
+            <div class="image-cell" id="image-8" draggable="true"></div>
+            <div class="image-cell" id="image-9" draggable="true"></div>
+        </div>
+        <div class="image-row">
+            <div class="image-cell" id="image-10" draggable="true"></div>
+            <div class="image-cell" id="image-11" draggable="true"></div>
+            <div class="image-cell" id="image-12" draggable="true"></div>
+        </div>
+        <div class="image-row">
+            <div class="image-cell" id="image-13" draggable="true"></div>
+            <div class="image-cell" id="image-14" draggable="true"></div>
+            <div class="image-cell" id="image-15" draggable="true"></div>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="goBack()">Volver</button>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo de la página */
+body {
+    background-image: url('Fondo1.png'); /* Cambia a la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif; /* Fuente general */
+}
+
+/* Estilo para el título gótico */
+.gothic-title {
+    color: rgb(240, 15, 15);
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 48px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+/* Contenedor general */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Estilo de la imagen */
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    width: 300px; /* Modificable desde CSS */
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Imagen pequeña que sigue al cursor */
+#cursor-img {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    display: none;
+}
+
+/* Efecto de temblor al hacer clic */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Estilos del foro */
+.forum-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    margin-bottom: 30px;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo del área de comentarios */
+#comments-section {
+    margin-bottom: 20px;
+}
+
+.comment {
+    display: flex;
+    margin-bottom: 10px;
+    background-color: #e0e0e0; /* Fondo gris claro para comentarios */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc; /* Color de fondo de la foto de perfil */
+    margin-right: 10px;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.text-options {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.text-options button {
+    margin-right: 5px;
+}
+
+#ban-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#clear-cache-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000; /* Asegura que el botón esté siempre visible por encima de otros elementos */
+}
+
+#clear-cache-btn:hover {
+    background-color: darkred; /* Cambiar color cuando el botón es hovered */
+}
+
+/* Menú superior */
+#top-menu {
+    position: fixed; /* Menú estático */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #333; /* Color de fondo del menú */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaciado entre logo, título y botón */
+    padding: 0 20px;
+    z-index: 1000; /* Asegura que el menú esté por encima del contenido */
+}
+
+/* Estilo del logo */
+.menu-logo img {
+    width: 40px; /* Tamaño pequeño del logo */
+    height: auto;
+}
+
+.menu-logo a {
+    text-decoration: none; /* Quita subrayado */
+}
+
+/* Estilo del título del menú */
+.menu-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.menu-title h1 {
+    font-size: 24px;
+    color: white;
+    font-family: Arial, sans-serif; /* Estilo de fuente Arial */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Estilo del botón de retroceso */
+.back-button {
+    display: flex;
+    align-items: center;
+}
+
+.back-btn {
+    background-color: #555;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background-color: #777;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    #top-menu {
+        padding: 0 10px;
+    }
+
+    .menu-title h1 {
+        font-size: 18px; /* Disminuir tamaño del texto en pantallas más pequeñas */
+    }
+
+    .menu-logo img {
+        width: 30px; /* Ajustar tamaño del logo en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-title h1 {
+        font-size: 16px; /* Ajustar aún más el tamaño del texto para pantallas pequeñas */
+    }
+
+    .menu-logo img {
+        width: 25px; /* Tamaño pequeño del logo para dispositivos móviles */
+    }
+}
+
+/* Simulación de contenido para ver el scroll */
+#content {
+    padding-top: 80px; /* Dejar espacio para el menú fijo */
+    height: 2000px; /* Añadir altura para probar el scroll */
+}
+
+.profile-pic {
+    width: 50px; /* Ajusta el tamaño del círculo (puedes modificarlo según lo que necesites) */
+    height: 50px; /* Asegúrate de que el ancho y alto sean iguales para un círculo perfecto */
+    border-radius: 50%; /* Esto hará que la imagen sea circular */
+    object-fit: cover; /* Asegura que la imagen se ajuste correctamente dentro del círculo */
+    display: block;
+    overflow: hidden;
+}
+
+.invisible{
+    color: #555;
+}

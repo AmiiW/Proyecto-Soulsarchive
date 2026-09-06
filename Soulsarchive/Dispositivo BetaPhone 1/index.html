@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Celular</title>
+    <link rel="icon" href="Icono.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="phone-container">
+        <p>///</p>
+        <div class="screen">
+            <div class="lock-screen">
+                <div class="date-time">
+                    <div class="day" id="day"></div>
+                    <div class="time" id="time"></div>
+                </div>
+                <div class="unlock-text">Click para desbloquear</div>
+            </div>
+            <div class="home-screen">
+                <div class="status-bar">
+                    <div class="status-time" id="status-time"></div>
+                </div>
+
+                <div class="app-grid">
+                    <div class="app" data-app="app1">
+                        <div class="app-icon"> <img src="Almanatra.png" width="50px" > </div>
+                        <div class="app-title"><br>Almantra.html</div>
+                    </div>
+                    <div class="app" data-app="app2">
+                        <div class="app-icon"> <img src="Mp3.png" width="50px" > </div>
+                        <div class="app-title"><br>Mp3</div>
+                    </div>
+                    <div class="app" data-app="app3">
+                        <div class="app-icon"> <img src="Internet Tower.png" width="50px" > </div>
+                        <div class="app-title"><p>Internet Tower</p><p>Pocket Edition</p></div>
+                    </div>
+                    <div class="app" data-app="app4">
+                        <div class="app-icon"> <img src="Configuracion.png" width="50px" > </div>
+                        <div class="app-title"><br>Configuración</div>
+                    </div>
+                    <div class="app" data-app="app5">
+                        <div class="app-icon"> <img src="Notas.png" width="50px" > </div>
+                        <div class="app-title"><br>Notas</div>
+                    </div>
+                    <div class="app" data-app="app6">
+                        <div class="app-icon"> <img src="Simon.png" width="50px" > </div>
+                        <div class="app-title"><br>Simon Game</div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-content" id="app1-content">
+                <img src="Almanatra2.png" width="300px" >
+                <a href="../Documental/index.html" class="old-school-button">Ir</a>
+            </div>
+
+            <div class="app-content" id="app2-content">
+
+                <div class="music-player" id="music-player">
+                    <h2>Mp3 Player</h2>
+                    <hr>
+                    <p id="song-title">Título de la Canción</p>
+                    <img id="song-icon" src="Portadas/BadBoy.jpg" alt="Song Icon">
+                    <div class="controls">
+                        <button id="prev-button">&#9664;</button>
+                        <button id="play-pause-button">&#9654;</button>
+                        <button id="next-button">&#9654;</button>
+                    </div>
+                    <audio id="audio-player"></audio>
+                    
+                </div>
+
+            </div>
+
+            <div class="app-content" id="app3-content">
+                <img src="InternetTower.png" width="250px"><br>
+                <a href="../Enlace6/Internet Tower/index.html" class="old-school-button">Ir</a>
+
+            </div>
+
+            <div class="app-content" id="app4-content">
+                
+                <div class="settings">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <center><p>Configuración</p></center>
+                    <div class="category">
+                        <h3>Letras</h3>
+                        <hr>
+                        <div class="option">
+                            <label>Fuente:</label>
+                            <div class="font-buttons">
+                                <button class="font-button" data-font="default">Por defecto</button>
+                                <button class="font-button" data-font="pixel">Pixel</button>
+                                <button class="font-button" data-font="retro">Retro</button>
+                            </div>
+                        </div>
+                        <div class="option">
+                            <label>Color:</label>
+                            <input type="color" id="text-color-picker" value="#000000">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="category">
+                        <h3>Móvil</h3>
+                        <hr>
+                        <div class="option">
+                            <label>Color:</label>
+                            <input type="color" id="phone-color-picker" value="#333333">
+                        </div>
+                        <div class="option">
+                            <label>Botón-Color:</label>
+                            <input type="color" id="home-button-color-picker" value="#555555">
+                        </div>
+                        <hr>
+                    </div>
+            
+                    <div class="category">
+                        <h3>Fondo</h3>
+                        <hr>
+                        <div class="option">
+                            <label>Menú:</label>
+                            <div class="background-buttons">
+                                <button class="bg-button" data-bg="Fondo2.png" style="background-image: url('Fondo2.png');"></button>
+                                <button class="bg-button" data-bg="Fondo1.png" style="background-image: url('Fondo1.png');"></button>
+                                <button class="bg-button" data-bg="Fondo3.png" style="background-image: url('Fondo3.png');"></button>
+                                <button class="bg-button" data-bg="Fondo4.png" style="background-image: url('Fondo4.png');"></button>
+                            </div>
+                        </div>
+                        <div class="option">
+                            <label>Bloqueo:</label>
+                            <div class="background-buttons">
+                                <button class="bg-button" data-bg="Fondo1.png" style="background-image: url('Fondo1.png');"></button>
+                                <button class="bg-button" data-bg="Fondo2.png" style="background-image: url('Fondo2.png');"></button>
+                                <button class="bg-button" data-bg="Fondo3.png" style="background-image: url('Fondo3.png');"></button>
+                                <button class="bg-button" data-bg="Fondo4.png" style="background-image: url('Fondo4.png');"></button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-content" id="app5-content">
+                <p class="title1">Notas</p>
+        <div class="Bloc">
+                <p>Asi que te robaste el celular eh, y no te importo nada. </p>
+                <br>
+                <p>Esta bien, esperaba que estuvieras aqui, justo hoy, justo ahora. Veamos si eres capaz de encontrar las piezas..., veamos si al final encuentras oro en vez de barro...</p>
+            <p>7 --> (2)</p>
+        </div>
+            </div>
+            <div class="app-content" id="app6-content">
+
+                <h1 id="level-title">Simón Dice</h1>
+                <div id="game-container">
+                    <div class="button" id="green"></div>
+                    <div class="button" id="red"></div>
+                    <div class="button" id="yellow"></div>
+                    <div class="button" id="blue"></div>
+                </div>
+                <button id="start-game">Iniciar Juego</button>
+
+            </div>
+        </div>
+        <div class="home-button"></div>
+    </div>
+    <script src="script3.js"></script>
+</body>
+</html>

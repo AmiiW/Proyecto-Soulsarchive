@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YaiTai</title>
+    <link rel="icon" href="LogoEstrella.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="LogoEstrella.png" alt="Logo de YouTube" />
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar">
+            <button>🔍</button>
+        </div>
+        <div class="profile-icon">👤</div>
+    </header>
+
+    <main>
+        <div class="main-video">
+            <h2>Avances 😬🦾😰🥶</h2>
+            <video src="Video.mp4" controls autoplay></video>
+            <div class="video-details">
+                <span class="views">1,234,567 visualizaciones</span>
+                <div class="actions">
+                    <button id="like-btn">👍 Like</button>
+                    <button id="dislike-btn">👎 Dislike</button>
+                </div>
+            </div>
+        </div>
+        <div class="video-list">
+            <div class="video-item">
+                <h3>Mi cara</h3>
+                <video src="Loading Screen Effect.mp4" autoplay loop muted></video>
+            </div>
+            <!-- Repite este bloque para más videos simulados -->
+            <div class="video-item">
+                <h3>Hacer Amigos | Hola Soy German</h3>
+                <video src="Loading Screen Effect.mp4" autoplay loop muted></video>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const likeButton = document.getElementById('like-btn');
+        const dislikeButton = document.getElementById('dislike-btn');
+
+        likeButton.addEventListener('click', () => {
+            likeButton.style.color = 'blue';
+            dislikeButton.style.color = 'black'; // Resetea el color de dislike
+        });
+
+        dislikeButton.addEventListener('click', () => {
+            dislikeButton.style.color = 'red';
+            likeButton.style.color = 'black'; // Resetea el color de like
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo de la página */
+body {
+    background-image: url('Win.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Press Start 2P', monospace; /* Fuente retro */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: rgba(0, 0, 0, 0.897); /* Fondo negro con 80% de opacidad */
+    padding: 20px;
+    border: 3px double #FFFFFF;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra alrededor del contenedor */
+    animation: zoomIn 1s ease-out; /* Animación de zoom in */
+}
+
+/* Animación de zoom in */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Imagen central */
+.central-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto 20px auto;
+    display: block;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+}
+
+/* Título */
+.titulo {
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #000000;
+}
+
+/* Descripción */
+.descripcion {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Botones */
+.botones button {
+    background-color: #0000FF; /* Azul clásico */
+    color: #FFFFFF;
+    border: 2px outset #FFFFFF;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px; /* Bordes redondeados en los botones */
+}
+
+/* Efecto al pasar el ratón sobre los botones */
+.botones button:hover {
+    background-color: #FFFFFF;
+    color: #0000FF;
+    border: 2px inset #0000FF;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .central-image {
+        max-width: 80%;
+    }
+
+    .titulo {
+        font-size: 1.5em;
+    }
+
+    .descripcion {
+        font-size: 1em;
+    }
+
+    .botones button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

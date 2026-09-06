@@ -1,0 +1,119 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    animation: backgroundColorChange 20s infinite alternate;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+@keyframes backgroundColorChange {
+    0% { background-color: #ffebcd; }
+    25% { background-color: #ffd1dc; }
+    50% { background-color: #cfe2f3; }
+    75% { background-color: #e6e6fa; }
+    100% { background-color: #fff0f5; }
+}
+
+.rainbow-title {
+    font-size: 2em;
+    margin: 20px 0;
+    animation: rainbow 5s infinite; /* Cambia la duración a 10 segundos */
+}
+
+@keyframes rainbow {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    57% { color: blue; }
+    71% { color: indigo; }
+    85% { color: violet; }
+    100% { color: red; }
+}
+
+
+.image-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Hace que los elementos se acomoden en varias filas si es necesario */
+    justify-content: center; /* Centra los elementos en contenedores más pequeños */
+}
+
+.image-box {
+    background-color: grey;
+    border: 2px solid black;
+    box-shadow: 5px 5px 15px black;
+    transition: all 0.3s ease;
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.image-box:hover {
+    background-color: gold;
+    transform: scale(1.05);
+}
+
+.image-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 200px; /* Tamaño máximo de las imágenes */
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .image-container {
+        
+        align-items: center; /* Centra las imágenes en dispositivos pequeños */
+    }
+    .image-box img {
+        max-width: 150px; /* Reduce el tamaño de las imágenes en pantallas pequeñas */
+    }
+}
+
+.text-below {
+    margin-top: 10px; /* Margen entre la imagen y el texto */
+    font-size: 0.8em; /* Tamaño de texto más pequeño para pantallas pequeñas */
+}
+
+/* Página de carga */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease;
+    z-index: 10000;
+}
+
+#loader.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Evitar que se pueda interactuar con el loader cuando está desapareciendo */
+}
+
+#loader img {
+    max-width: 100%; /* Ajusta el tamaño del gif según tu preferencia */
+    max-height: 100%;
+}
+
+/* Ocultar contenido por defecto hasta que cargue la página */
+#content {
+    display: none;
+}
+
+/* Mostrar contenido cuando la carga finalice */
+#content.show {
+    display: block;
+}
+
+/* Fin pantalla de carga */

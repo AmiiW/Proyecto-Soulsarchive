@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La conferencia de paz - Menu</title>
+  <link rel="icon" href="../Logo3.PNG" type="image/png">
+  <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    
+    <button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+    
+    <audio id="miAudio" autoplay muted loop>
+        <source src="../Yum.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+    
+    <script>
+        document.addEventListener("click", function() {
+            const audio = document.getElementById("miAudio");
+            if (audio.muted) {
+                audio.muted = false; // Activar el audio al primer clic del usuario
+            }
+        });
+    </script>
+
+  <div class="container">
+    <hr>
+    <img src="../Logo2.png" alt="Título del Juego" class="title-image">
+    <br>
+    <hr>
+    <br>
+    <button class="start-button" onclick="redirect()">Comenzar</button>
+  </div>
+  <script>
+    // Función para ir a la página anterior
+document.getElementById('backButton').addEventListener('click', function() {
+    window.history.back();
+});
+
+// Fin
+  
+    function redirect() {
+      setTimeout(() => {
+        window.location.href = "../Eleccion/index.html"; // Cambia "juego.html" por la URL deseada
+      }, 2000);
+    }
+  </script>
+  
+ <div class="footer-text">
+    © 2024 Soulsarchive.com. Todos los derechos reservados.
+  </div>
+</body>
+</html>

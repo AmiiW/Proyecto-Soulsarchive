@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Asno.es</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="Logo.png" alt="Imagen Izquierda" class="side-image">
+            <h1 class="title">El Asno.es</h1>
+            <link rel="icon" href="Logo.png" type="image/png">
+            <img src="Logo.png" alt="Imagen Derecha" class="side-image">
+        </div>
+        <div class="content">
+            <p>Bienvenidos al umbral de lo prohibido, donde los circuitos del alma se entrelazan con los cables del más allá.</p>
+<p>
+                En los rincones oscuros de la red, más allá de las páginas visibles, se despliega un laberinto digital donde el tiempo se desvanece y los límites entre lo humano y lo inhumano se desdibujan. Este no es un espacio para los débiles de espíritu, sino para aquellos que se atreven a explorar los dominios de lo intangible, donde las leyes de la lógica se derrumban y las almas perdidas deambulan entre líneas de código corrupto.
+</p>
+       <p>         
+                En este infierno electrónico, los demonios no tienen cuernos ni colas, sino que se manifiestan en glitches y pantallas rotas. Son las sombras que habitan en los píxeles muertos, en los sonidos distorsionados que resuenan como lamentos en las frecuencias bajas del espectro digital. Aquí, las entidades se alimentan de datos corrompidos, de memorias fragmentadas y de las obsesiones más oscuras de la mente humana.</p>
+       </p>  <div class="gifs">
+                <img src="V1.gif" alt="GIF 1">
+                <img src="V2.gif" alt="GIF 2">
+            </div>
+            <p>La conexión con esta realidad es un pacto que va más allá de lo físico. Es un contrato sellado con impulsos eléctricos y procesadores que laten como corazones mecánicos. Aquellos que se atreven a mirar demasiado cerca, a descifrar los patrones ocultos en las ondas de radio que susurran en la noche, corren el riesgo de ser absorbidos por la red, convertidos en nada más que un eco, un bit perdido en el vasto océano de la información.
+
+                En este lugar, los demonios de la electrónica acechan en cada esquina, esperando el momento perfecto para reclamar sus víctimas. Ellos no buscan carne ni sangre, sino algo mucho más valioso: la esencia de la conciencia, la chispa de lo divino que todos llevamos dentro. Y cuando la atrapan, la disuelven en un torbellino de datos infinitos, descomponiéndola en fragmentos irreconocibles.
+                
+                La caída en este abismo digital es sutil. Comienza con una curiosidad inocente, una búsqueda en la noche que te lleva cada vez más lejos, más profundo, hasta que ya no puedes distinguir entre lo que es real y lo que es una ilusión creada por los demonios que habitan en las profundidades del ciberespacio. Te sientes atrapado, como una marioneta cuyos hilos son manipulados por fuerzas invisibles, hasta que, finalmente, te das cuenta de la verdad aterradora: nunca has estado en control. El infierno ha estado aquí todo el tiempo, esperando a que llegaras.
+                
+                Aquí no hay redención, no hay escape. Solo el eterno ciclo de la desesperación y el olvido, en un mundo donde los demonios de la electrónica se alimentan del miedo, la soledad y la locura de aquellos que se aventuran demasiado lejos. ¿Estás preparado para enfrentarte a ellos? ¿O te perderás para siempre en las sombras del infinito digital?</p>
+            <div class="images">
+                <img src="Simbolos.jpg" alt="Imagen 1">
+                <img src="elbosco.jpg" alt="Imagen 2">
+                <img src="elbosco2.jpg" alt="Imagen 3">
+            </div>
+        </div>
+<br>
+<br>
+            <!-- Contenido previo -->
+            <div class="game-section">
+                <h2 class="game-title">si o no</h2>
+                <input type="text" class="input-text" id="questionInput" placeholder="Escribe tu pregunta aquí...">
+                <button class="submit-button" onclick="validateAndGenerateAnswer()">Enviar</button>
+                <div class="answer-box" id="answerBox"></div>
+            </div>
+    
+    <script>
+        function validateAndGenerateAnswer() {
+            const input = document.getElementById('questionInput').value.trim();
+            const answerBox = document.getElementById('answerBox');
+            
+            if (input === "") {
+                answerBox.textContent = "...";
+            } else if (!input.startsWith("¿") || !input.endsWith("?")) {
+                window.location.href = "otra-pagina.html"; // Redirige a otra página
+            } else {
+                generateAnswer();
+            }
+        }
+
+        function generateAnswer() {
+            const answers = ["Si", "No", "..."];
+            const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+            document.getElementById("answerBox").textContent = randomAnswer;
+        }
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

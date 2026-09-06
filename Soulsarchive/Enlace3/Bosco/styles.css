@@ -1,0 +1,124 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    background-color: #111;
+    border: 2px solid #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    text-align: center;
+    flex: 1;
+    padding: 0 20px;
+}
+
+.side-image {
+    width: 100px;
+    height: auto;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.gifs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.gifs img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.images img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #444;
+}
+
+.game-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.game-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.input-text {
+    width: 95%;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    border: 2px solid #444;
+    background-color: #222;
+    color: #fff;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #666;
+}
+
+.answer-box {
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 1.5rem;
+    border: 2px solid #444;
+    background-color: #fff;
+    color: #000;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

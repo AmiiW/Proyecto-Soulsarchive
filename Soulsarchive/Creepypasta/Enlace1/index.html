@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Cave</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet"> <!-- Fuente gótica de Google Fonts -->
+</head>
+<body>
+    <div id="loader" class="loader">
+        <video id="loading-video" src="LoadingJuego.mp4" muted autoplay loop></video>
+        </div>
+        <button id="backButton">🠔</button> <!-- Botón con flecha siempre visible -->
+
+        <audio autoplay loop>
+            <source src="Grito.mp3" type="audio/mp3">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>
+
+    <div class="container">
+        <div class="animated-image glitch">
+            <img src="InternetCave.png" alt="Animated Image">
+        </div>
+        <div class="menu glitch">
+            <button onclick="navigateWithDelay('Juego2/index.html')">Play Level 1 (Fácil)</button>
+            <button onclick="navigateWithDelay('Dificultad Media/index.html')">Play Level 2 (Medio)</button>
+            <button onclick="navigateWithDelay('Dificultad Dificil/index.html')">Play Level 3 (Difícil)</button>
+            <button onclick="navigateWithDelay('Decide/index.html')">Play Level 4 (Demoniaco)</button>
+            <button onclick="navigateWithDelay('Instrucciones/index.html')">Instrucciones</button>
+        </div>
+    </div>
+    <audio id="button-sound" src="Clic.mp3" preload="auto"></audio>
+    <div class="video-game-text">******************************************************************************************************************************************</div>
+    <img src="Logo.jpg" id="imagen-fija" alt="Imagen Fija">
+    <script src="script.js"></script>
+
+    <style>
+        /* Estilos del botón de música */
+        #musicButton {
+            position: fixed;
+            top: 15px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: #f28b82; /* Rojo pastel suave */
+            border: 2px solid black;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+            z-index: 9999; /* Asegura que el botón esté por encima de todos los elementos */
+        }
+
+        #musicButton img {
+            width: 70%;
+            height: 70%;
+        }
+
+        #musicButton.active {
+            background-color: #ccff90; /* Verde claro pastel */
+        }
+    </style>
+
+    <!-- Elemento de audio para la música -->
+    <audio id="backgroundMusic" src="Sound.mp3" loop></audio>
+
+    <script>
+        function toggleMusic() {
+            const musicButton = document.getElementById('musicButton');
+            const buttonIcon = document.getElementById('buttonIcon');
+            const music = document.getElementById('backgroundMusic');
+
+            if (music.paused) {
+                music.play();
+                musicButton.classList.add('active');
+                buttonIcon.src = 'On.png'; // Imagen cuando la música está activada
+            } else {
+                music.pause();
+                musicButton.classList.remove('active');
+                buttonIcon.src = 'Off.png'; // Imagen cuando la música está desactivada
+            }
+        }
+    </script>
+
+<div id="resolution-warning">
+    <img src="Cartel.png" width="400px">
+</div>
+
+</body>
+</html>

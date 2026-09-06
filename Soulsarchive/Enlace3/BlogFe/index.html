@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz y Fe</title>
+    <link rel="icon" href="Logo.png" type="image/png">
+    <style>
+        /* Fondo */
+        body {
+            background: url('Dios.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Times New Roman', serif;
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            animation: brillo 10s infinite;
+        }
+
+        /* Animación de brillo */
+        @keyframes brillo {
+            0% { text-shadow: 0 0 10px #ffffcc; }
+            50% { text-shadow: 0 0 20px #ffcc99, 0 0 30px #ffffcc; }
+            100% { text-shadow: 0 0 10px #ffffcc; }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 50px;
+            color: #ffffcc;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px #000000;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin: 20px 20px;
+            text-shadow: 1px 1px 3px #000000;
+            line-height: 1.6;
+        }
+
+        .contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .imagen-texto {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .imagen-texto img {
+            max-width: 50%;
+            height: auto;
+            border: 5px solid #ffffff;
+            border-radius: 15px;
+            margin: 0 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .imagen-texto p {
+            max-width: 40%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .imagen-texto {
+                flex-direction: column;
+            }
+
+            .imagen-texto img {
+                max-width: 80%;
+            }
+
+            .imagen-texto p {
+                max-width: 80%;
+                margin-top: 20px;
+            }
+        }
+
+        /* Texto de copyright */
+        footer {
+            font-size: 1rem;
+            margin-top: 50px;
+            text-shadow: 1px 1px 2px #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenido">
+        <h1>La Luz de la Fe</h1>
+        <p>La fe es la certeza de lo que se espera, la convicción de lo que no se ve.</p>
+        
+        <div class="imagen-texto">
+            <img src="Dios.png" alt="Imagen religiosa">
+            
+            <br>
+            <p>"Confía en el Señor con todo tu corazón, y no te apoyes en tu propio entendimiento; reconócelo en todos tus caminos, y Él enderezará tus sendas."
+                Proverbios 3:5-6
+                
+                Que la paz de nuestro Señor Jesucristo ilumine tu camino, llenando tu vida de bendiciones y esperanza. Que su sagrada presencia te proteja en cada paso que des, guiándote siempre con su amor infinito.
+                
+                Jesús, el Buen Pastor, cuida de ti con ternura, llevándote por sendas de justicia. En los momentos de dificultad, recuerda que su luz nunca se apaga y que su amor es el refugio más seguro. Que la fe en Él sea tu escudo y tu fortaleza.
+                
+                "El Señor es mi pastor, nada me faltará. En lugares de verdes pastos me hace descansar; junto a aguas de reposo me conduce."
+                Salmo 23:1-2
+                
+                Que este día y todos los días, Jesús esté contigo, trayendo paz a tu corazón y fortaleza a tu espíritu. Que su amor te rodee y te llene de la verdadera alegría y prosperidad.</p>
+        </div>
+    </div>
+    <p>El camino de la luz nos guía hacia la verdad y la vida eterna. Mantén tu fe fuerte y tu corazón abierto a la luz divina.</p>
+    <footer>
+        &copy; 2024 Blog de Luz y Fe. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
